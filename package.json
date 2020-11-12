@@ -10,7 +10,7 @@
     "startUser": "nodemon views/user.js",
     "client": "npm start --prefix surflineClient",
     "dev": "concurrently \"npm run startAuth\" \"npm run client\"",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix surflineClient && npm run build -- prefix surflineClient"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix surflineClient && npm run build --prefix surflineClient"
   },
   "author": "Jboe",
   "license": "MIT",
