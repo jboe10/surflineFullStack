@@ -33,7 +33,6 @@ app.use('/api/user', authRoute);
 app.use('/api/user', usersRoute);
 app.use('/api/spots/', spotsRoute);
 
-
 // create port
 const port = process.env.PORT || 4000;
 
@@ -47,7 +46,6 @@ if (process.env.NODE_ENV === 'production') {
     res.sendFile=(path.resolve(__dirname, 'surflineClient', 'public', 'index.html'))
   })
 }
-
 
 connect()
 .then(async connnection => {
