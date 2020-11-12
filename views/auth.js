@@ -6,6 +6,7 @@ const cors = require('cors');
 const morgan = require('morgan');
 const {json, urlencoded} = require('body-parser');
 const port = process.env.PORT || 4000;
+const path = require('path');
 dotenv.config();
 
 // import Routes
@@ -30,16 +31,16 @@ app.use(urlencoded({extended: true}));
 app.use('/api/user', authRoute);
 
 
-// // serve static assests
-// if (process.env.NODE_ENV === 'production') {
+// serve static assests
+if (process.env.NODE_ENV === 'production') {
 
-//   //set static folder
-//   app.use(express.static('client/build'));
+  //set static folder
+  app.use(express.static('surflineClient/public'));
 
-//   app.get('*', (req,res) => {
-//     res.sendFile=(path.resolve(__dirname, 'client', 'build', 'index.html'))
-//   })
-// }
+  app.get('*', (req,res) => {
+    res.sendFile=(path.resolve(__dirname, 'surflineClient', 'public', 'index.html'))
+  })
+}
 
 
 connect()
