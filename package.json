@@ -24,9 +24,8 @@
     "heroku": "^7.47.2",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.10.13",
-    "morgan": "^1.10.0"
-  },
-  "devDependencies": {
+    "morgan": "^1.10.0",
     "nodemon": "^2.0.6"
-  }
+  },
+  "devDependencies": {}
 }
