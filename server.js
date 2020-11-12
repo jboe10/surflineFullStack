@@ -36,16 +36,16 @@ app.use('/api/spots/', spotsRoute);
 // create port
 const port = process.env.PORT || 4000;
 
-// // serve static assests
-// if (process.env.NODE_ENV === 'production') {
+// serve static assests
+if (process.env.NODE_ENV === 'production') {
 
-//   //set static folder
-//   app.use(express.static('surflineClient/public'));
+  //set static folder
+  app.use(express.static('surflineClient/public'));
 
-//   app.get('*', (req,res) => {
-//     res.sendFile=(path.resolve(__dirname, 'surflineClient', 'public', 'index.html'))
-//   })
-// }
+  app.get('*', (req,res) => {
+    res.sendFile=(path.resolve(__dirname, 'surflineClient', 'public', 'index.html'))
+  })
+}
 
 connect()
 .then(async connnection => {
