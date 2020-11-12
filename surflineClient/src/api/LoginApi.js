@@ -1,6 +1,6 @@
 import axios from 'axios'; 
 
-const loginServer = `http://localhost:4000/api/user`
+const loginServer = `https://stormy-thicket-96949.herokuapp.com/api/user`
 
 export default async function LoginRequest(email, pass) {
   return axios.post(`${loginServer}/login`, {
