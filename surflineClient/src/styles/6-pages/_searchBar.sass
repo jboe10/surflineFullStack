@@ -1,0 +1,114 @@
+.search-bar
+  font-size: 12px;
+  font-weight: 700;
+  color: white;
+  background-color: rgb(0, 88, 176);
+  display: flex;
+  height: 56px;
+  position: relative;
+  .home-button
+    a 
+      padding: 0;
+      .small-logo
+        display: none;
+  .news-link
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 0px 15px;
+    flex-shrink: 0;
+    a 
+      padding: 0;
+  .news-link:hover
+    background-color: #048;
+  .dropdown-f
+    display: flex;
+    align-items: center;
+    padding: 0px 15px;
+    flex-shrink: 0;
+  .dropdown-f:hover
+    background-color: #048;
+  input
+    position: relative
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    flex-shrink: 3;
+    flex-grow: 2;
+    min-width: 0;
+    color: white;
+    transition: background-color 0.5s ease;
+    background-color: #048;
+    border-radius: 5px;
+    border: 1px solid #048;
+  input:hover
+    background-color: #00366c;
+  input:hover::after
+    position: absolute;
+    content: "";
+    background-color: rgba(0, 0, 0, 0.4)
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 100;
+  input::placeholder
+    padding-left: 5px;
+    text-align: center;
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
+  .free-trial-btn
+    flex-shrink: 0;
+    position: relative
+    text-align: center;
+    background-color: #23D737;
+    font-size: 12px;
+    font-weight: 700;
+    color: white
+    border: none;
+    margin: 5px 10px 5px 10px;
+  .free-trial-btn:focus
+    outline: none;
+    border: none;
+  .free-trial-btn:hover::after
+    position: absolute;
+    content: "";
+    background-color: rgba(0, 0, 0, 0.2)
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+  a 
+    color: white;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+  .logout-btn 
+    color: white;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    background-color: #0058b0;
+    border: none;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+@media screen and ( max-width: $small )
+  .search-bar
+    .home-button
+      a 
+        .large-logo
+          display: none;
+        .small-logo
+          display: block;
+    .dropdown-f
+      display: none;
+    .news-link
+      display: none;
+    .dropdown
+      display: none;
+    .free-trial-btn
+      display: none;

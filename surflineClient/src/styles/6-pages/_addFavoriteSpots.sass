@@ -1,0 +1,42 @@
+.add-favorite-spots
+  position: fixed;
+  background-color: rgba(0,0,0,0.8);
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  .spots-modal
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 300px;
+    padding: 25px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    overflow: auto;
+    background-color: white;
+    .checkbox-wrap
+      margin-bottom: 40px;
+      .checkboxes
+        font-size: 20px;
+    .save-cancel
+      display: flex;
+      .save
+        display: flex;
+        margin-right: auto;
+        button
+          padding: 10px 10px 10px 10px;
+          margin-right: auto;
+        button:active
+          background-color: gray;
+          outline: none;
+      .cancel
+        button
+          padding: 10px 10px 10px 10px;
+          margin-right: auto;
+        button:active
+          background-color: gray;
+          outline: none;
