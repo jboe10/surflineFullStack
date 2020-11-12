@@ -2,10 +2,10 @@
   "name": "srfline",
   "version": "1.0.0",
   "description": "surfline full stack app",
-  "main": "server.js",
+  "main": "views/auth.js",
   "scripts": {
     "client-install": "npm install --prefix surflineClient",
-    "startAuth": "nodemon server.js",
+    "startAuth": "nodemon views/auth.js",
     "startUser": "nodemon views/user.js",
     "client": "npm run start --prefix surflineClient",
     "dev": "concurrently \"npm run startAuth\" \"npm run client\"",
