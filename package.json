@@ -5,8 +5,8 @@
   "main": "server.js",
   "scripts": {
     "client-install": "npm install --prefix surflineClient",
-    "start": "nodemon views/auth.js",
-    "startAuth": "nodemon views/auth.js",
+    "start": "node server.js",
+    "startAuth": "nodemon server.js",
     "startUser": "nodemon views/user.js",
     "client": "npm start --prefix surflineClient",
     "dev": "concurrently \"npm run startAuth\" \"npm run client\"",
