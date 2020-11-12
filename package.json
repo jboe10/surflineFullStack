@@ -5,6 +5,7 @@
   "main": "server.js",
   "scripts": {
     "client-install": "npm install --prefix surflineClient",
+    "start": "node views/auth.js",
     "startAuth": "nodemon views/auth.js",
     "startUser": "nodemon views/user.js",
     "client": "npm start --prefix surflineClient",
