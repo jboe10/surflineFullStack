@@ -5,12 +5,13 @@ const dotenv = require('dotenv')
 const cors = require('cors');
 const morgan = require('morgan');
 const {json, urlencoded} = require('body-parser');
-const port = process.env.PORT || 4000;
 const path = require('path');
 dotenv.config();
 
 // import Routes
 const authRoute = require('../src/auth/userAuth.route');
+const usersRoute = require('../src/resources/users/user.route');
+const spotsRoute = require('../src/resources/spots/spot.route');
 
 // connect to db
 const uri = "mongodb+srv://jboe:kino1212@cluster0.9hnwg.mongodb.net/srfline?retryWrites=true&w=majority";
@@ -29,7 +30,12 @@ app.use(urlencoded({extended: true}));
 
 // route middlewares
 app.use('/api/user', authRoute);
+app.use('/api/user', usersRoute);
+app.use('/api/spots/', spotsRoute);
 
+
+// create port
+const port = process.env.PORT || 4000;
 
 // serve static assests
 if (process.env.NODE_ENV === 'production') {
