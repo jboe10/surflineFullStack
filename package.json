@@ -5,11 +5,12 @@
   "main": "server.js",
   "scripts": {
     "client-install": "npm install --prefix surflineClient",
-    "startAuth": "nodemon views/auth.js",
+    "start": "node server.js",
+    "startAuth": "nodemon server.js",
     "startUser": "nodemon views/user.js",
     "client": "npm start --prefix surflineClient",
-    "dev": "concurrently \"npm run startAuth\" \"npm run startUser\" \"npm run client\"",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix surflineClient && npm run build -- prefix surflineClient"
+    "dev": "concurrently \"npm run startAuth\" \"npm run client\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix surflineClient && npm run build --prefix surflineClient"
   },
   "author": "Jboe",
   "license": "MIT",
