@@ -6,11 +6,11 @@
   "homepage": "https://stormy-thicket-96949.herokuapp.com/",
   "scripts": {
     "client-install": "npm install --prefix surflineClient",
-    "start": "node server.js",
-    "startServer": "nodemon server.js",
-    "client": "npm run start --prefix surflineClient",
+    "start": "nodemon server.js",
+    "server": "nodemon server.js",
+    "client": "cd surflineClient && npm run start",
     "dev": "concurrently \"npm run client\" \"npm run startServer\"",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix surflineClient && npm run build --prefix surflineClient"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false cd surflineClient && npm install && npm run build"
   },
   "author": "Jboe",
   "license": "MIT",
