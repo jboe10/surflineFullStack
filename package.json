@@ -5,12 +5,12 @@
   "main": "server.js",
   "homepage": "https://stormy-thicket-96949.herokuapp.com/",
   "scripts": {
-    "client-install": "npm install --prefix surflineClient",
+    "client-install": "npm install --prefix client",
     "start": "nodemon server.js",
     "server": "nodemon server.js",
-    "client": "cd surflineClient && npm run start",
+    "client": "cd client && npm run start",
     "dev": "concurrently \"npm run client\" \"npm run startServer\"",
-    "heroku-postbuild": "cd surflineClient && npm install && npm run build"
+    "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "author": "Jboe",
   "license": "MIT",
