@@ -43,9 +43,12 @@ if (process.env.NODE_ENV === 'production') {
 app.use('/api/user', authRoute);
 app.use('/api/user', usersRoute);
 app.use('/api/spots/', spotsRoute);
-app.get('*', (req,res) => {
-  res.sendFile=(path.resolve(__dirname, 'surflineClient', 'build', 'index.html'))
-})
+
+if (process.env.NODE_ENV === 'production') {
+  app.get('*', (req,res) => {
+    res.sendFile=(path.resolve(__dirname, 'surflineClient', 'build', 'index.html'))
+  })
+}
 
 
 connect()
