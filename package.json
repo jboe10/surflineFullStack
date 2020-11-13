@@ -10,7 +10,7 @@
     "server": "nodemon server.js",
     "client": "cd surflineClient && npm run start",
     "dev": "concurrently \"npm run client\" \"npm run startServer\"",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false cd surflineClient && npm install && npm run build"
+    "heroku-postbuild": "cd surflineClient && npm install && npm run build"
   },
   "author": "Jboe",
   "license": "MIT",
