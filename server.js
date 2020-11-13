@@ -40,9 +40,9 @@ const port = process.env.PORT || 4000;
 
   
 //set static folder
-app.use('/', express.static(path.join(__dirname, '/surflineClient/build')));
+app.use('/', express.static(path.join(__dirname, '/client/build')));
 app.get('*', (req,res) => {
-  res.sendFile=(path.resolve(__dirname, 'surflineClient', 'build', 'index.html'))
+  res.sendFile=(path.resolve(__dirname, 'cient', 'build', 'index.html'))
 })
 
 connect()
