@@ -2,7 +2,7 @@
   "name": "surfline",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://stormy-thicket-96949.herokuapp.com/",
+  "homepage": "https://stormy-thicket-96949.herokuapp.com/login",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.32",
     "@fortawesome/free-solid-svg-icons": "^5.15.1",
