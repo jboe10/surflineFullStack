@@ -10,7 +10,7 @@
     "server": "nodemon server.js",
     "client": "cd client && npm run start",
     "dev": "concurrently \"npm run client\" \"npm run startServer\"",
-    "heroku-postbuild": "cd client && npm install && npm run build"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false cd client && npm install && npm run build"
   },
   "author": "Jboe",
   "license": "MIT",
