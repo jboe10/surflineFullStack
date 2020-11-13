@@ -5,12 +5,8 @@
   "main": "server.js",
   "homepage": "https://stormy-thicket-96949.herokuapp.com/",
   "scripts": {
-    "client-install": "npm install --prefix client",
     "start": "nodemon server.js",
-    "server": "nodemon server.js",
-    "client": "cd client && npm run start",
-    "dev": "concurrently \"npm run client\" \"npm run startServer\"",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false cd client && npm install && npm run build"
+    "build": "cd client/ && npm install && npm run build"
   },
   "author": "Jboe",
   "license": "MIT",
