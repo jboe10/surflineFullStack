@@ -40,7 +40,7 @@ const port = process.env.PORT || 4000;
 if (process.env.NODE_ENV === 'production') {
   
   //set static folder
-  app.use(express.static('surflineClient/build'));
+  app.use('/', express.static(path.join(__dirname, '/surflineClient/build')));
   app.get('*', (req,res) => {
     res.sendFile=(path.resolve(__dirname, 'surflineClient', 'build', 'index.html'))
   })
