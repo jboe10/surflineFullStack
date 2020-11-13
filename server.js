@@ -29,23 +29,24 @@ app.use(morgan('dev'));
 app.use(urlencoded({extended: true}));
 
 // route middlewares
-app.use('/api/user', authRoute);
-app.use('/api/user', usersRoute);
-app.use('/api/spots/', spotsRoute);
 
 // create port
 const port = process.env.PORT || 4000;
 
 // serve static assests
 if (process.env.NODE_ENV === 'production') {
-
+  
   //set static folder
   app.use(express.static('surflineClient/build'));
-
-  app.get('*', (req,res) => {
-    res.sendFile=(path.resolve(__dirname, 'surflineClient', 'build', 'index.html'))
-  })
 }
+
+app.use('/api/user', authRoute);
+app.use('/api/user', usersRoute);
+app.use('/api/spots/', spotsRoute);
+app.get('*', (req,res) => {
+  res.sendFile=(path.resolve(__dirname, 'surflineClient', 'build', 'index.html'))
+})
+
 
 connect()
 .then(async connnection => {
