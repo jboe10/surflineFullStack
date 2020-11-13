@@ -37,14 +37,13 @@ app.use('/api/spots/', spotsRoute);
 const port = process.env.PORT || 4000;
 
 // serve static assests
-if (process.env.NODE_ENV === 'production') {
+
   
-  //set static folder
-  app.use('/', express.static(path.join(__dirname, '/surflineClient/build')));
-  app.get('*', (req,res) => {
-    res.sendFile=(path.resolve(__dirname, 'surflineClient', 'build', 'index.html'))
-  })
-}
+//set static folder
+app.use('/', express.static(path.join(__dirname, '/surflineClient/build')));
+app.get('*', (req,res) => {
+  res.sendFile=(path.resolve(__dirname, 'surflineClient', 'build', 'index.html'))
+})
 
 connect()
 .then(async connnection => {
