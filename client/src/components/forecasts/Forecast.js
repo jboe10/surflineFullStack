@@ -39,8 +39,8 @@ export default function Forecast(props) {
       <div className="forecast-wrap">
         <div className="forecast">
           <img src={images[getRndInteger(0, images.length -1)]} alt="ff"/>
-          <div className="info-wrap">
-            <div className="info">
+          <div className="surf-info-wrap">
+            <div className="surf-info">
               <div className={surfQualityColor}>
                 <div className="spot-name">
                   {props.spot.name}
@@ -58,7 +58,7 @@ export default function Forecast(props) {
               <h5>PM Forecast</h5>
               <p>Tide push maxes out a 3.5' at 3pm, predicting swamped out conditions. However winds stay down and conditions improve with the tidal draw. Best bet ~5pm.</p>
             </div>
-            <a className="ad" href="/join">
+            <a className="join-ad" href="/join">
               <div className="sign-up-ad" style={{backgroundImage: `url(${waves})`}}>
                 <h2>Become a Premium Member Today!</h2>
                 <h5>Gain Access to Premium Member Benefits</h5>

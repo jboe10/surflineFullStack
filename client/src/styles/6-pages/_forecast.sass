@@ -3,18 +3,17 @@
   .forecast
     display: flex;
     margin-bottom: 30px;
+    max-height: 700px;
     img
       width: 60%;
-      max-height: 700px;
       object-fit: cover;
-    .info-wrap
+    .surf-info-wrap
       margin-left: 30px;
-      padding: 25px;
       width: 100%;
       background: white;
       display: flex;
       flex-direction: column;
-      .info
+      .surf-info
         .spot-bar
           display: flex;
           padding: 15px 35px 15px 35px;
@@ -39,7 +38,7 @@
         h5
           margin-bottom: 0;
         p 
-  .ad 
+  .join-ad 
     .sign-up-ad
       padding: 15px;
       background-color: white;
@@ -66,13 +65,12 @@
     .forecast
       display: flex; //
       flex-direction: column; ///
+      max-height: none;  
       img
         width: 100%; //
-      .info-wrap
+        margin-bottom: 30px;
+      .surf-info-wrap
         margin-left: 0; //
         padding: 0px; //
         width: auto; //
-    .ad 
-      margin-bottom: 30px; //
-      .sign-up-ad
-        height: 100%; //
+  
