@@ -45,17 +45,19 @@ export default function Body() {
         </div>
       </div>
       <div className="forecasts">
-        <div className="surf-break-of-day" style={{backgroundImage: `url(${hb})`}}>
-          <div className="spot-name">
-            <span className="dot"></span>
-            HB Northside Pier
+        <a href="">
+          <div className="surf-break-of-day" style={{backgroundImage: `url(${hb})`}}>
+            <div className="spot-name">
+              <span className="dot"></span>
+              HB Northside Pier
+            </div>
+            <div className="spot-conditions">
+              <div className="condition height">4-6ft</div>
+              <div className="condition tide">0.7ft</div>
+              <div className="condition wind">6kts</div>
+            </div>
           </div>
-          <div className="spot-conditions">
-            <div className="condition height">4-6ft</div>
-            <div className="condition tide">0.7ft</div>
-            <div className="condition wind">6kts</div>
-          </div>
-        </div>
+        </a>
         <div className="area-forecast">
           <h3>Regional Forecast - North Orange County</h3>
           <h5>AM Forecast</h5>
