@@ -45,7 +45,7 @@ export default function Body() {
         </div>
       </div>
       <div className="forecasts">
-        <a href="">
+        <a href="forecasts/5f91189dec0123009c4fc9b7">
           <div className="surf-break-of-day" style={{backgroundImage: `url(${hb})`}}>
             <div className="spot-name">
               <span className="dot"></span>
