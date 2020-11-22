@@ -22,19 +22,19 @@ export default function Footer() {
         <div className="surfline-info">
           <h4>Company</h4>
           <ul>
-            <li><a>About Surfline</a></li>
-            <li><a>Careers</a></li>
-            <li><a>Advertise</a></li>
-            <li><a>Ocean Consulting</a></li>
+            <li><a href="#">About Surfline</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Advertise</a></li>
+            <li><a href="#">Ocean Consulting</a></li>
           </ul>
         </div>
         <div className="surfline-info">
           <h4>Support</h4>
           <ul>
-            <li><a>Support Center</a></li>
-            <li><a>My Account</a></li>
-            <li><a>Get Premium</a></li>
-            <li><a>Gift Cards</a></li>
+            <li><a href="#">Support Center</a></li>
+            <li><a href="#">My Account</a></li>
+            <li><a href="#">Get Premium</a></li>
+            <li><a href="#">Gift Cards</a></li>
           </ul>
         </div>
         <div className="social-lnks">
