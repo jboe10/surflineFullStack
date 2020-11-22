@@ -1,6 +1,7 @@
 import React from 'react'
 import SearchBar from '../SearchBar';
 import waves from '../../imgs/waves.jpg';
+import Footer from '../Footer';
 
 export default function Forecast(props) {
   let surfQualityColor = "spot-bar";
@@ -69,6 +70,7 @@ export default function Forecast(props) {
         <div className="ad">
         </div>
       </div>
+      <Footer/>
     </>
   )
 }

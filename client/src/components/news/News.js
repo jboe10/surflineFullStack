@@ -5,6 +5,7 @@ import small2 from '../../imgs/small2.jpg';
 import small3 from '../../imgs/small3.jpg';
 import feature from '../../imgs/feature-lg.jpg'
 import SearchBar from '../SearchBar';
+import Footer from '../Footer';
 
 export default function News() {
   return (
@@ -46,6 +47,7 @@ export default function News() {
           </div>
         </div>
       </div>
+      <Footer/>
     </>
   )
 }
