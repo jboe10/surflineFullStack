@@ -14,13 +14,13 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    &:hover
+      -webkit-box-shadow: 0px 0px 5px 6px rgba(0,0,0,0.14);
+      -moz-box-shadow: 0px 0px 5px 6px rgba(0,0,0,0.14);
+      box-shadow: 0px 0px 5px 6px rgba(0,0,0,0.14);
     .spot-link 
       color: #048;
       font-size: 16px;
       padding: 5px 0 5px 0;
-    .spot-link:hover
-      text-decoration: underline;
-  .half:hover
-    -webkit-box-shadow: 0px 0px 5px 6px rgba(0,0,0,0.14);
-    -moz-box-shadow: 0px 0px 5px 6px rgba(0,0,0,0.14);
-    box-shadow: 0px 0px 5px 6px rgba(0,0,0,0.14);
+      &:hover
+        text-decoration: underline;

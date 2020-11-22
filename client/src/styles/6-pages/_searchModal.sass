@@ -32,13 +32,13 @@
             border-radius: 0;
             font-size: 25px;
             color: white;
-          input:focus
-            outline: none;
-          input::placeholder
-            text-align: left;
-            font-size: 25px;  
-            color: #3279bf;
-            font-weight: 600;
+            &:focus
+              outline: none;
+            &::placeholder
+              text-align: left;
+              font-size: 25px;  
+              color: #3279bf;
+              font-weight: 600;
     .search-exit
       width: 60px;
       height: 100%;
@@ -50,10 +50,10 @@
         font-size: 25px;
         width: 30px;
         border-radius: 5px;
-      svg:hover
-        background-color: white
-        border: 1px solid white;
-        color: #048;
+        &:hover
+          background-color: white
+          border: 1px solid white;
+          color: #048;
     .search-results
       display: grid; 
       grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
