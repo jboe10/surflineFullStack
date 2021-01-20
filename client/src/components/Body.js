@@ -15,7 +15,7 @@ export default function Body() {
           <div className="featured-article" style={{backgroundImage: `url(${feature})`}}>
             <div className="article-feature">
               <h2>
-                Surfing Alone? Not Anymore1
+                Surfing Alone? Not Anymore
               </h2> 
             </div>
           </div>
