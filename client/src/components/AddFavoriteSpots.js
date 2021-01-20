@@ -33,7 +33,7 @@ export default function AddFavoriteSpots(props) {
       }
     }
     spotLists();
-  }, [])
+  }, [props])
 
   const convertArrayToHashOfId = (array, key) => {
     const initialValue = {};
