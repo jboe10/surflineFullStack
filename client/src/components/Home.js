@@ -5,14 +5,14 @@ import Footer from './Footer';
 import SearchBar from './SearchBar';
 
 export default function Home() {
-  return (
-    <div className="home-page">
-      <div className="header">
-        <SearchBar/>
-      </div>
-      <CamSelect/>
-      <Body/>
-      <Footer/>
-    </div>
-  )
+	return (
+		<div className="home-page">
+			<div className="header">
+				<SearchBar />
+			</div>
+			<CamSelect />
+			<Body />
+			<Footer />
+		</div>
+	);
 }
