@@ -1,10 +1,10 @@
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
-const dotenv = require('dotenv')
+const dotenv = require('dotenv');
 const cors = require('cors');
 const morgan = require('morgan');
-const {json, urlencoded} = require('body-parser');
+const { json, urlencoded } = require('body-parser');
 const path = require('path');
 dotenv.config();
 
@@ -14,20 +14,21 @@ const usersRoute = require('./src/resources/users/user.route');
 const spotsRoute = require('./src/resources/spots/spot.route');
 
 // connect to db
-const uri = "mongodb+srv://jboe:kino1212@cluster0.9hnwg.mongodb.net/srfline?retryWrites=true&w=majority";
+const uri =
+	'mongodb+srv://jboe:kino1212@cluster0.9hnwg.mongodb.net/srfline?retryWrites=true&w=majority';
 const connect = () => {
-  return mongoose.connect(uri, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-  })
-}
+	return mongoose.connect(uri, {
+		useNewUrlParser: true,
+		useUnifiedTopology: true,
+	});
+};
 app.use(express.static(path.join(__dirname, './client/build')));
 
-// middleware 
-app.use(express.json())
-app.use(cors())
+// middleware
+app.use(express.json());
+app.use(cors());
 app.use(morgan('dev'));
-app.use(urlencoded({extended: true}));
+app.use(urlencoded({ extended: true }));
 
 // route middlewares
 app.use('/api/user', authRoute);
@@ -39,15 +40,14 @@ const port = process.env.PORT || 4000;
 
 // serve static assests
 
-  
 //set static folder
-app.get('*', (req,res) => {
-  res.sendFile(path.resolve(__dirname, './client/build', 'index.html'))
-})
+app.get('*', (req, res) => {
+	res.sendFile(path.resolve(__dirname, './client/build', 'index.html'));
+});
 
 connect()
-.then(async connnection => {
-  // start express server
-  app.listen(port);
-})
-.catch (e => console.error(e))
+	.then(async connnection => {
+		// start express server
+		app.listen(port);
+	})
+	.catch(e => console.error(e));
