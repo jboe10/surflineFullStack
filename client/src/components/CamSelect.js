@@ -9,6 +9,7 @@ import {
 import CamFavorite from './CamFavorite';
 import { getUserInfo } from '../api/UserApi';
 import AddFavoriteSpots from './AddFavoriteSpots';
+import { scrollLeftSmooth } from '../utils/Helpers';
 
 export default function CamSelect() {
 	const [favoriteSpots, setFavoriteSpots] = useState([]);
@@ -28,7 +29,6 @@ export default function CamSelect() {
 	}, []);
 
 	useEffect(() => {
-		console.log('AAAAAA');
 		const getUserSpots = async () => {
 			try {
 				const userInfo = await getUserInfo();
@@ -40,16 +40,6 @@ export default function CamSelect() {
 		getUserSpots();
 	}, [showAddSpots]);
 
-	const scroll = (ref, left) => {
-		if (ref) {
-			ref.scrollBy({
-				top: 0,
-				left: left,
-				behavior: 'smooth',
-			});
-		}
-	};
-
 	return (
 		<>
 			<div className="cam-select">
@@ -60,20 +50,12 @@ export default function CamSelect() {
 					>
 						<div className="add-favorite">
 							<div className="add">
-								<FontAwesomeIcon
-									icon={faPlusCircle}
-								/>
-								<FontAwesomeIcon
-									className="minus"
-									icon={faMinusCircle}
-								/>
+								<FontAwesomeIcon icon={faPlusCircle} />
+								<FontAwesomeIcon className="minus" icon={faMinusCircle} />
 							</div>
 							<div className="text">
 								<h5>Add/Remove Favorites</h5>
-								<span>
-									Quickly access the spots
-									you care about most.
-								</span>
+								<span>Quickly access the spots you care about most.</span>
 							</div>
 						</div>
 					</div>
@@ -90,16 +72,10 @@ export default function CamSelect() {
 					</div>
 				</div>
 				<div className="arrows">
-					<button
-						onClick={() =>
-							scroll(favsEle.current, -500)
-						}
-					>
+					<button onClick={() => scrollLeftSmooth(favsEle.current, -500)}>
 						<FontAwesomeIcon icon={faArrowLeft} />
 					</button>
-					<button
-						onClick={() => scroll(favsEle.current, 500)}
-					>
+					<button onClick={() => scrollLeftSmooth(favsEle.current, 500)}>
 						<FontAwesomeIcon icon={faArrowRight} />
 					</button>
 				</div>
@@ -111,9 +87,7 @@ export default function CamSelect() {
 					Sign Up
 				</a>
 			</div>
-			{showAddSpots && (
-				<AddFavoriteSpots setShow={setShowAddSpots} />
-			)}
+			{showAddSpots && <AddFavoriteSpots setShow={setShowAddSpots} />}
 		</>
 	);
 }
