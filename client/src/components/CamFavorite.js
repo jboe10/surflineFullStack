@@ -1,26 +1,12 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faVideo } from '@fortawesome/free-solid-svg-icons';
+import { surfColorClassNameGen } from '../utils/Helpers';
+
+const surfQuality = 'surf-quality';
 
 export default function CamFavorite(props) {
-	let surfQualityColor;
-	switch (props.quality) {
-		case 'epic':
-			surfQualityColor = 'surf-quality orange-surf';
-			break;
-		case 'good':
-			surfQualityColor = 'surf-quality green-surf';
-			break;
-		case 'fair':
-			surfQualityColor = ' surf-quality blue-surf';
-			break;
-		case 'poor':
-			surfQualityColor = 'surf-quality gray-surf';
-			break;
-		default:
-			surfQualityColor = 'surf-quality gray-surf';
-			break;
-	}
+	const surfQualityColor = surfColorClassNameGen(surfQuality, props.quality);
 
 	return (
 		<div className="favorite-cam-item-wrap">
@@ -31,9 +17,7 @@ export default function CamFavorite(props) {
 						<FontAwesomeIcon icon={faVideo} />
 					</div>
 					<div className="surf-conditions">
-						<div className={surfQualityColor}>
-							{props.quality}
-						</div>
+						<div className={surfQualityColor}>{props.quality}</div>
 						<div className="surf-height">
 							{props.height}
 							<span>ft</span>

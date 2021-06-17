@@ -26,9 +26,7 @@ export default function SearchBar() {
 
 	let searchModal;
 	showSearchModal
-		? (searchModal = (
-				<SearchModal setShowSearchModal={setShowSearchModal} />
-		  ))
+		? (searchModal = <SearchModal setShowSearchModal={setShowSearchModal} />)
 		: (searchModal = null);
 
 	const logoutClickHandler = () => {
@@ -66,12 +64,7 @@ export default function SearchBar() {
 					onMouseLeave={() => setForecastDrop(false)}
 				>
 					FORECASTS
-					{forecastDrop && (
-						<DropdownMenu
-							link="/forecasts/"
-							spots={spots}
-						/>
-					)}
+					{forecastDrop && <DropdownMenu link="/forecasts/" spots={spots} />}
 				</div>
 				<div className="news-link">
 					<a href="/news">NEWS</a>
@@ -87,10 +80,7 @@ export default function SearchBar() {
 				</a>
 				{!showLogout && <a href="/login">SIGN IN</a>}
 				{showLogout && (
-					<div
-						className="logout-btn"
-						onClick={() => logoutClickHandler()}
-					>
+					<div className="logout-btn" onClick={() => logoutClickHandler()}>
 						LOGOUT
 					</div>
 				)}

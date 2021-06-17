@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { getSpotList, getUserInfo, updateUserSpots } from '../api/UserApi';
+import { convertArrayToHashOfId } from '../utils/Helpers';
 
 export default function AddFavoriteSpots(props) {
 	const [checkBoxSpots, setCheckBoxSpots] = useState([]);
@@ -35,20 +36,11 @@ export default function AddFavoriteSpots(props) {
 			} catch (error) {
 				props.setShow(false);
 				alert('Please Sign In To Continue');
+				return error;
 			}
 		};
 		spotLists();
 	}, [props]);
-
-	const convertArrayToHashOfId = (array, key) => {
-		const initialValue = {};
-		return array.reduce((obj, item) => {
-			return {
-				...obj,
-				[item[key]]: '',
-			};
-		}, initialValue);
-	};
 
 	const Checkbox = props => (
 		<input className="checkBox" type="checkbox" {...props} />
@@ -93,21 +85,13 @@ export default function AddFavoriteSpots(props) {
 			<div className="spots-modal">
 				<div className="checkbox-wrap">
 					{checkBoxSpots.map((check, index) => (
-						<div
-							className="checkboxes"
-							key={check.spot._id}
-						>
+						<div className="checkboxes" key={check.spot._id}>
 							<Checkbox
 								type="checkbox"
 								name={check.spot.name}
 								checked={check.checked}
 								onChange={event =>
-									setCheckBoxSpots(
-										handelCheckBoxChange(
-											event,
-											check.spot._id
-										)
-									)
+									setCheckBoxSpots(handelCheckBoxChange(event, check.spot._id))
 								}
 							/>
 							<label>{check.spot.name}</label>
@@ -116,16 +100,10 @@ export default function AddFavoriteSpots(props) {
 				</div>
 				<div className="save-cancel">
 					<div className="save">
-						<button onClick={() => saveClickHandler()}>
-							Save
-						</button>
+						<button onClick={() => saveClickHandler()}>Save</button>
 					</div>
 					<div className="cancel">
-						<button
-							onClick={() => props.setShow(false)}
-						>
-							Cancel
-						</button>
+						<button onClick={() => props.setShow(false)}>Cancel</button>
 					</div>
 				</div>
 			</div>
