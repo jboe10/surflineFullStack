@@ -1,8 +1,7 @@
 import axios from 'axios';
 const userServer = `https://stormy-thicket-96949.herokuapp.com/api`;
 
-export function getUserInfo() {
-	const token = localStorage.getItem('auth-token');
+export const getUserInfo = token => {
 	return axios({
 		method: 'GET',
 		url: `${userServer}/user`,
@@ -10,10 +9,9 @@ export function getUserInfo() {
 	}).then(response => {
 		return response.data;
 	});
-}
+};
 
-export function updateUserSpots(favSpots) {
-	const token = localStorage.getItem('auth-token');
+export const updateUserSpots = (token, favSpots) => {
 	if (token) {
 		return axios({
 			method: 'PUT',
@@ -24,9 +22,10 @@ export function updateUserSpots(favSpots) {
 			return response.data;
 		});
 	}
-}
+};
 
-export function getSpotList() {
+// gets all Spot names
+export function getSurfSpotList() {
 	return axios.get(`${userServer}/spots`).then(response => {
 		return response.data;
 	});

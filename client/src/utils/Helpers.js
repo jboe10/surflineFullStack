@@ -65,3 +65,11 @@ export const scrollLeftSmooth = (ref, left) => {
 		});
 	}
 };
+
+export const compareSelectorState = (obj1, obj2) => {
+	if (JSON.stringify(obj1) === JSON.stringify(obj2)) {
+		return true;
+	} else {
+		return false;
+	}
+};

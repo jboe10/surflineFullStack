@@ -8,7 +8,7 @@ export default function MobileForecastsNav() {
 
 	useEffect(() => {
 		const getSpots = async () => {
-			setSpots(await getSpotList());
+			// setSpots(await getSpotList());
 		};
 		getSpots();
 	}, []);

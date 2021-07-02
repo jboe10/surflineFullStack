@@ -13,7 +13,7 @@ export default function SearchBar() {
 
 	useEffect(() => {
 		const getSpots = async () => {
-			setSpots(await getSpotList());
+			// setSpots(await getSpotList());
 		};
 		const token = localStorage.getItem('auth-token');
 		if (token) {

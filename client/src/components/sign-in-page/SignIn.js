@@ -6,23 +6,23 @@ import {
 	faNewspaper,
 	faCompass,
 } from '@fortawesome/free-solid-svg-icons';
-import LoginRequest from '../../api/LoginApi';
 import { useHistory } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { loginRequest } from '../../redux/reducers/loginReducer';
+import { INCREMENT, LOGIN_INFO } from '../../redux/actions';
 
-export default function SignIn() {
-	const [login, setLogin] = useState();
-	const [password, setPassword] = useState();
+function SignIn(props) {
+	const [login, setLogin] = useState('123123@gmail.com');
+	const [password, setPassword] = useState('123123');
 	const history = useHistory();
+	const dispatch = useDispatch();
 
 	const formSubmit = async event => {
 		event.preventDefault();
-		try {
-			const resp = await LoginRequest(login, password);
-			localStorage.setItem('auth-token', resp);
-			history.push('/');
-		} catch {
-			alert('invalid user/pass');
-		}
+		dispatch({ type: LOGIN_INFO, payload: { login, password } });
+		dispatch(loginRequest());
+		history.push('/');
 	};
 
 	return (
@@ -30,49 +30,32 @@ export default function SignIn() {
 			<div className="login">
 				<div className="header">
 					<a href="/">
-						<img
-							width="50px"
-							height="50px"
-							src={surfline}
-							alt="FF"
-						/>
+						<img width="50px" height="50px" src={surfline} alt="FF" />
 					</a>
 				</div>
 				<div className="body-wrap">
 					<div className="bodys">
 						<h3>Sign in</h3>
 						<div className="sign-up">
-							Dont have an account?{' '}
-							<a href="/join">Sign Up</a>
+							Dont have an account? <a href="/join">Sign Up</a>
 						</div>
 						<form onSubmit={formSubmit}>
 							<div className="login-input">
 								<input
 									type="text"
-									onChange={e =>
-										setLogin(
-											e.target.value
-										)
-									}
+									onChange={e => setLogin(e.target.value)}
 									placeholder="EMAIL"
 								/>
 							</div>
 							<div className="login-input">
 								<input
 									type="text"
-									onChange={e =>
-										setPassword(
-											e.target.value
-										)
-									}
+									onChange={e => setPassword(e.target.value)}
 									placeholder="PASSWORD"
 								/>
 							</div>
 							{/* <a href="/">Forgot Password?</a> */}
-							<button
-								type="submit"
-								className="sign-in-btn"
-							>
+							<button type="submit" className="sign-in-btn">
 								SIGN IN
 							</button>
 						</form>
@@ -88,24 +71,16 @@ export default function SignIn() {
 						<FontAwesomeIcon icon={faCompass} />
 						<div className="blurb-text">
 							<h4>Favorite Your Spots</h4>
-							<p>
-								Quickly access cams and
-								forecasts for the{' '}
-							</p>
+							<p>Quickly access cams and forecasts for the </p>
 							<p>breaks your care bost about</p>
 						</div>
 					</div>
 
 					<div className="blurb">
-						<FontAwesomeIcon
-							icon={faEnvelopeOpenText}
-						/>
+						<FontAwesomeIcon icon={faEnvelopeOpenText} />
 						<div className="blurb-text">
 							<h4>Email Newsletter</h4>
-							<p>
-								The best of surfline delivered
-								straight to your
-							</p>
+							<p>The best of surfline delivered straight to your</p>
 							<p>inbox.</p>
 						</div>
 					</div>
@@ -114,10 +89,7 @@ export default function SignIn() {
 						<FontAwesomeIcon icon={faNewspaper} />
 						<div className="blurb-text">
 							<h4>Personalized Homepage</h4>
-							<p>
-								Recieve news and forecasts
-								tailored to your
-							</p>
+							<p>Recieve news and forecasts tailored to your</p>
 							<p>local area.</p>
 						</div>
 					</div>
@@ -126,3 +98,18 @@ export default function SignIn() {
 		</div>
 	);
 }
+
+export const mapStateToProps = state => {
+	return {
+		value: state,
+	};
+};
+
+export const mapDispatchToProps = dispatch => {
+	return {
+		dispatchIncrement: () => dispatch({ type: INCREMENT }),
+		dispatchLogin: () => dispatch({ type: 'LOGIN' }),
+	};
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(SignIn);

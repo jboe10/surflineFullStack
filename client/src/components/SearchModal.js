@@ -11,18 +11,14 @@ export default function SearchModal(props) {
 
 	useEffect(() => {
 		const getSpots = async () => {
-			setSpots(await getSpotList());
+			// setSpots(await getSpotList());
 		};
 		getSpots();
 	}, []);
 
 	const inputChangeHandler = event => {
 		setResults(
-			spots.filter(
-				spot =>
-					spot.name.search(new RegExp(searchInput, 'i')) >=
-					0
-			)
+			spots.filter(spot => spot.name.search(new RegExp(searchInput, 'i')) >= 0)
 		);
 		return event.target.value;
 	};
@@ -36,21 +32,13 @@ export default function SearchModal(props) {
 							<FontAwesomeIcon icon={faSearch} />
 							<input
 								placeholder="Search spots for Forecast"
-								onChange={event =>
-									setSearchInput(
-										inputChangeHandler(
-											event
-										)
-									)
-								}
+								onChange={event => setSearchInput(inputChangeHandler(event))}
 							/>
 						</div>
 					</div>
 					<div
 						className="search-exit"
-						onClick={() =>
-							props.setShowSearchModal(false)
-						}
+						onClick={() => props.setShowSearchModal(false)}
 					>
 						<FontAwesomeIcon icon={faTimes} />
 					</div>

@@ -1,26 +1,44 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { getAllSurfSpots } from '../redux/reducers/surfSpotsReducer';
 import { getSpotList, getUserInfo, updateUserSpots } from '../api/UserApi';
-import { convertArrayToHashOfId } from '../utils/Helpers';
+import { compareSelectorState, convertArrayToHashOfId } from '../utils/Helpers';
+import { shallowEqual, useDispatch, useSelector } from 'react-redux';
+import {
+	updateUserFavSpots,
+	userInfoReducer,
+} from '../redux/reducers/userReducer';
+import { USER_INFO } from '../redux/actions';
+import { hash } from 'bcryptjs';
 
 export default function AddFavoriteSpots(props) {
 	const [checkBoxSpots, setCheckBoxSpots] = useState([]);
+	const dispatch = useDispatch();
 	const backgroundDiv = useRef(null);
+	const allSpots = useSelector(state => state.surfSpotsReducer);
+	const userInfo = useSelector(state => state.userInfoReducer);
 
 	useEffect(() => {
+		console.log(userInfo);
 		const spotLists = async () => {
-			// Get list of all Spots
-			const spots = await getSpotList();
-			// Get list of users Favorite Spots
-			try {
-				const userInfo = await getUserInfo();
-				// Make a hash of spots based on IDS for checkboxes
+			// check to see if we have default spots
+			if (!compareSelectorState(allSpots, [])) {
+				dispatch(getAllSurfSpots());
+			}
+			// If we aren't logged in, show alert
+			if (compareSelectorState(userInfo, {})) {
+				props.setShow(false);
+				alert('Please Sign In To Continue');
+
+				// Logged in, select favorite spots
+			} else {
 				const hashOfUsersSpots = convertArrayToHashOfId(
 					userInfo.favoriteSpots,
 					'_id'
 				);
+				console.log(hashOfUsersSpots);
 				// Find out which Checkboxes to set to checked or not Checked and put them in an array
 				setCheckBoxSpots(
-					spots.map(spot => {
+					allSpots.map(spot => {
 						const obj = {};
 						// Check hash of users favorite spots against all spots
 						if (hashOfUsersSpots[spot._id] === '') {
@@ -33,14 +51,10 @@ export default function AddFavoriteSpots(props) {
 						return obj;
 					})
 				);
-			} catch (error) {
-				props.setShow(false);
-				alert('Please Sign In To Continue');
-				return error;
 			}
 		};
 		spotLists();
-	}, [props]);
+	}, [userInfo]);
 
 	const Checkbox = props => (
 		<input className="checkBox" type="checkbox" {...props} />
@@ -58,15 +72,26 @@ export default function AddFavoriteSpots(props) {
 	};
 
 	const saveClickHandler = async () => {
-		const checked = checkBoxSpots.reduce((aa, { checked, _id }) => {
+		const favoriteSpots = checkBoxSpots.reduce((aa, { checked, _id }) => {
 			if (checked === true) {
-				aa.push(_id);
+				aa.push({ _id });
 			}
 			return aa;
 		}, []);
 
+		console.log(favoriteSpots);
 		// Set Users Favorite Spots
-		await updateUserSpots(checked);
+		// update redux USER_INFO state
+		dispatch({
+			type: USER_INFO,
+			payload: {
+				...userInfo,
+				favoriteSpots,
+			},
+		});
+		// update API
+		updateUserFavSpots();
+
 		props.setShow(false);
 	};
 

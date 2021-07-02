@@ -10,35 +10,32 @@ import CamFavorite from './CamFavorite';
 import { getUserInfo } from '../api/UserApi';
 import AddFavoriteSpots from './AddFavoriteSpots';
 import { scrollLeftSmooth } from '../utils/Helpers';
+import { useSelector } from 'react-redux';
 
 export default function CamSelect() {
 	const [favoriteSpots, setFavoriteSpots] = useState([]);
 	const [showAddSpots, setShowAddSpots] = useState(false);
 	const favsEle = useRef(null);
+	const spots = useSelector(state => state.surfSpotsReducer);
 
+	// Grabs users favorite spots
 	useEffect(() => {
-		const getUserSpots = async () => {
-			try {
-				const userInfo = await getUserInfo();
-				setFavoriteSpots(userInfo.favoriteSpots);
-			} catch (error) {
-				setFavoriteSpots([]);
-			}
-		};
-		getUserSpots();
-	}, []);
+		if (spots) {
+			// setFavoriteSpots(spots);
+		}
+	}, [spots]);
 
-	useEffect(() => {
-		const getUserSpots = async () => {
-			try {
-				const userInfo = await getUserInfo();
-				setFavoriteSpots(userInfo.favoriteSpots);
-			} catch (error) {
-				setFavoriteSpots([]);
-			}
-		};
-		getUserSpots();
-	}, [showAddSpots]);
+	// useEffect(() => {
+	// 	const getUserSpots = async () => {
+	// 		try {
+	// 			const userInfo = await getUserInfo();
+	// 			setFavoriteSpots(userInfo.favoriteSpots);
+	// 		} catch (error) {
+	// 			setFavoriteSpots([]);
+	// 		}
+	// 	};
+	// 	getUserSpots();
+	// }, [showAddSpots]);
 
 	return (
 		<>

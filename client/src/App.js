@@ -23,10 +23,10 @@ function App() {
 	const [spots, setSpots] = useState([]);
 
 	useEffect(() => {
-		const getSpots = async () => {
-			setSpots(await getSpotList());
-		};
-		getSpots();
+		// const getSpots = async () => {
+		// 	setSpots(await getSpotList());
+		// };
+		// getSpots();
 	}, []);
 
 	return (
@@ -48,11 +48,7 @@ function App() {
 					<MobileForecastsNav />
 				</Route>
 				{spots.map(spot => (
-					<Route
-						key={spot._id}
-						exact
-						path={`/forecasts/${spot._id}`}
-					>
+					<Route key={spot._id} exact path={`/forecasts/${spot._id}`}>
 						<Forecast spot={spot} />
 					</Route>
 				))}

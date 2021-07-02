@@ -10,6 +10,9 @@ export default function LoginRequest(email, pass) {
 		})
 		.then(response => {
 			return response.data.token;
+		})
+		.catch(err => {
+			return err;
 		});
 }
 
