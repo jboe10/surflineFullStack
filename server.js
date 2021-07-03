@@ -1,17 +1,8 @@
-const express = require('express');
-const app = express();
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
-const cors = require('cors');
-const morgan = require('morgan');
-const { json, urlencoded } = require('body-parser');
-const path = require('path');
-dotenv.config();
+const app = require('./src/app');
 
-// import Routes
-const authRoute = require('./src/auth/userAuth.route');
-const usersRoute = require('./src/resources/users/user.route');
-const spotsRoute = require('./src/resources/spots/spot.route');
+dotenv.config();
 
 // connect to db
 const uri =
@@ -22,28 +13,9 @@ const connect = () => {
 		useUnifiedTopology: true,
 	});
 };
-app.use(express.static(path.join(__dirname, './client/build')));
-
-// middleware
-app.use(express.json());
-app.use(cors());
-app.use(morgan('dev'));
-app.use(urlencoded({ extended: true }));
-
-// route middlewares
-app.use('/api/user', authRoute);
-app.use('/api/user', usersRoute);
-app.use('/api/spots/', spotsRoute);
 
 // create port
 const port = process.env.PORT || 4000;
-
-// serve static assests
-
-//set static folder
-app.get('*', (req, res) => {
-	res.sendFile(path.resolve(__dirname, './client/build', 'index.html'));
-});
 
 connect()
 	.then(async connnection => {
