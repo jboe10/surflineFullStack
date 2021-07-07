@@ -4,11 +4,11 @@ const mongoose = require('mongoose');
 const UserInfoSchema = new mongoose.Schema({
 	id: {
 		type: String,
-		require: true,
+		required: true,
 	},
 	email: {
 		type: String,
-		// require: true,
+		required: true,
 		min: 4,
 	},
 	favoriteSpots: [

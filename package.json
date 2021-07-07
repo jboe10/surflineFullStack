@@ -7,7 +7,7 @@
 	"scripts": {
 		"start": "nodemon server.js",
 		"build": "cd client/ && npm install && npm run build",
-		"backTest": "jest src/app.test.js --watchAll --detectOpenHandles"
+		"backTest": "jest src/app_test/ --watchAll --detectOpenHandles"
 	},
 	"author": "Jboe",
 	"license": "MIT",

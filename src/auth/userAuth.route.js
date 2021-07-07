@@ -34,6 +34,7 @@ router.post('/register', async (req, res) => {
 		// CREATE USERINFO based off user
 		const userInfoObj = {
 			id: `${savedUser._id}`,
+			email: `${savedUser.email}`,
 		};
 
 		// Validate USERINFO
@@ -46,9 +47,10 @@ router.post('/register', async (req, res) => {
 
 		const userInfo = new UserInfo(userInfoObj);
 		const savedInfo = await userInfo.save();
-		res.send(savedUser);
+
+		res.status(201).json({ email: savedUser.email });
 	} catch (err) {
-		res.status(400).send(err);
+		res.sendStatus(400);
 	}
 });
 
@@ -67,7 +69,7 @@ router.post('/login', async (req, res) => {
 
 	//CREATE AND ASSIGN A TOKEN
 	const token = jwt.sign({ _id: user._id }, process.env.TOKEN_SECRET);
-	res.header('auth-token', token).send(JSON.stringify({ token: token }));
+	res.header('auth-token', token).json({ token: token });
 });
 
 module.exports = router;
