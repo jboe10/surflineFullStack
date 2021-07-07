@@ -17,7 +17,6 @@ export default function Forecast(props) {
 		require.context('../../imgs/forecasts', false, /\.(png|jpe?g|svg)$/)
 	);
 
-	console.log(images);
 	return (
 		<>
 			<SearchBar />
