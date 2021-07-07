@@ -67,6 +67,7 @@ describe('GET /api/user', () => {
 			});
 	});
 });
+
 describe('PUT /api/user', () => {
 	// create user and update userInfo
 	const userCreationInfo = {
@@ -93,7 +94,7 @@ describe('PUT /api/user', () => {
 		// wipe userInfo
 		userModel.collection.drop();
 
-		// wipe spot info maybe?
+		// wipe spot info
 		spotModel.collection.drop();
 
 		// create 2 new spots

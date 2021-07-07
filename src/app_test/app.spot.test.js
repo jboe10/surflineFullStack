@@ -78,27 +78,27 @@ describe('POST /api/spots', () => {
 			});
 	});
 
-	// const spot1 = {
-	// 	quality: 'good',
-	// 	size: '4-5',
-	// };
-	// it('should return with 400 because of missing name field', () => {
-	// 	return request(app).post('/api/spots').send(spot1).expect(400);
-	// });
-	// const spot2 = {
-	// 	name: 'This is a test Spot',
-	// 	size: '4-5',
-	// };
-	// it('should return with 400 because of missing quality field', () => {
-	// 	return request(app).post('/api/spots').send(spot2).expect(400);
-	// });
-	// const spot3 = {
-	// 	name: 'This is a test Spot',
-	// 	quality: 'good',
-	// };
-	// it('should return with 400 because of missing size field', () => {
-	// 	return request(app).post('/api/spots').send(spot3).expect(400);
-	// });
+	const spot1 = {
+		quality: 'good',
+		size: '4-5',
+	};
+	it('should return with 400 because of missing name field', () => {
+		return request(app).post('/api/spots').send(spot1).expect(400);
+	});
+	const spot2 = {
+		name: 'This is a test Spot',
+		size: '4-5',
+	};
+	it('should return with 400 because of missing quality field', () => {
+		return request(app).post('/api/spots').send(spot2).expect(400);
+	});
+	const spot3 = {
+		name: 'This is a test Spot',
+		quality: 'good',
+	};
+	it('should return with 400 because of missing size field', () => {
+		return request(app).post('/api/spots').send(spot3).expect(400);
+	});
 });
 
 // describe();
