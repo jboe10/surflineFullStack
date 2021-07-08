@@ -183,7 +183,7 @@ describe('PUT /api/spots/:id', () => {
 		quality: 'fair',
 		size: '3-4',
 	};
-
+	let newSpot_Id;
 	it('should return with 200/json message and updated obj and old _id', async () => {
 		await request(app)
 			.post('/api/spots')
@@ -191,6 +191,7 @@ describe('PUT /api/spots/:id', () => {
 			.expect(201)
 			.expect('Content-Type', /json/)
 			.then(response1 => {
+				newSpot_Id = response1.body._id;
 				return request(app)
 					.put(`/api/spots/${response1.body._id}`)
 					.send(newSpot)
@@ -207,6 +208,31 @@ describe('PUT /api/spots/:id', () => {
 						);
 					});
 			});
+	});
+
+	const badSpotUpdate = {
+		name: 'This is a test Spot',
+		quality: 'good',
+		size: '4-5',
+		extra: 'aaa',
+	};
+
+	const fieldMissingUpdate = {
+		name: 'This is a test Spot',
+		quality: 'good',
+	};
+	it('should return a 400 due to excess field on update', async () => {
+		await request(app)
+			.put(`/api/spots/${newSpot_Id}`)
+			.send(badSpotUpdate)
+			.expect(400);
+	});
+	it('should return 200 because fields arent required', async () => {
+		await request(app)
+			.put(`/api/spots/${newSpot_Id}`)
+			.send(fieldMissingUpdate)
+			.expect(200)
+			.expect('Content-type', /json/);
 	});
 });
 
