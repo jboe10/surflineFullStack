@@ -109,7 +109,6 @@ const updateOne =
 					{ new: true }
 				)
 				.lean()
-				// .populate('classes')
 				.exec();
 
 			if (!updatedDoc) {
@@ -134,7 +133,6 @@ const updateOnePrime = model => async (req, res) => {
 				{ new: true }
 			)
 			.lean()
-			// .populate('classes')
 			.exec();
 
 		if (!updatedDoc) {
