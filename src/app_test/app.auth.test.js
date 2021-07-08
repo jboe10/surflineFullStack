@@ -3,8 +3,6 @@ const app = require('../app');
 const mongoose = require('mongoose');
 const monogodb = 'mongodb://localhost:27017/JWT';
 const userAuthModel = require('../auth/userAuth.model');
-const userModel = require('../resources/users/user.model');
-const spotModel = require('../resources/spots/spot.model');
 const dotenv = require('dotenv');
 
 dotenv.config();
@@ -45,6 +43,7 @@ describe('POST /api/user/register', () => {
 			})
 			.expect(400);
 	});
+
 	it('should return a 400 due to missing user Name', () => {
 		return request(app)
 			.post('/api/user/register')
@@ -54,6 +53,7 @@ describe('POST /api/user/register', () => {
 			})
 			.expect(400);
 	});
+
 	it('should return a 400 due to missing user Password', () => {
 		return request(app)
 			.post('/api/user/register')
@@ -64,6 +64,7 @@ describe('POST /api/user/register', () => {
 			.expect(400);
 	});
 });
+
 describe('POST /api/login/user', () => {
 	const userCreationInfo = {
 		name: '123123',
@@ -97,6 +98,7 @@ describe('POST /api/login/user', () => {
 			})
 			.expect(400);
 	});
+
 	it('should return a 200 with a JSON JWT on valid user/pass', async () => {
 		await request(app)
 			.post('/api/user/login')
