@@ -121,6 +121,7 @@ const updateOne =
 			res.status(400).end();
 		}
 	};
+
 const updateOnePrime = model => async (req, res) => {
 	try {
 		const id = req.user;
