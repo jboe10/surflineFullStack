@@ -9,7 +9,6 @@ const tokenAuth = (req, res, next) => {
 	try {
 		const verified = jwt.verify(token, process.env.TOKEN_SECRET);
 		req.user = verified._id;
-		console.log(req.user, req.baseUrl);
 		next();
 	} catch (err) {
 		res.state(400).send('INVALID TOKEN');

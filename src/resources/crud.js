@@ -160,7 +160,7 @@ const updateOneByEmail = model => async (req, res) => {
 		res.status(400).end();
 	}
 };
-
+// TODO: Pass in validation function (as optional)
 const createOne = model => async (req, res) => {
 	try {
 		const body = req.body;

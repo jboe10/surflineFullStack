@@ -7,10 +7,7 @@ const getOneAndPopulate = populate => async (req, res) => {
 		const id = req.user;
 		let doc;
 		if (populate) {
-			doc = await User.findOne({ id: id })
-				.lean()
-				.populate(populate)
-				.exec();
+			doc = await User.findOne({ id: id }).lean().populate(populate).exec();
 		} else {
 			doc = await User.findOne({ id: id }).lean().exec();
 		}
