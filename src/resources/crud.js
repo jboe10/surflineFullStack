@@ -84,31 +84,44 @@ const removeOnePrime = model => async (req, res) => {
 	}
 };
 
-const updateOne = model => async (req, res) => {
-	try {
-		const id = req.params.id;
-		const updatedDoc = await model
-			.findOneAndUpdate(
-				{
-					_id: id,
-				},
-				req.body,
-				{ new: true }
-			)
-			.lean()
-			// .populate('classes')
-			.exec();
+const updateOne =
+	(model, validation = null) =>
+	async (req, res) => {
+		try {
+			const id = req.params.id;
+			const body = req.body;
 
-		if (!updatedDoc) {
-			return res.status(400).end();
+			// validate data in put if validation available
+			if (validation.updateValidation) {
+				const { error } = validation.updateValidation(body);
+				if (error) {
+					console.log('FF');
+					return res.status(400).end();
+				}
+			}
+
+			const updatedDoc = await model
+				.findOneAndUpdate(
+					{
+						_id: id,
+					},
+					req.body,
+					{ new: true }
+				)
+				.lean()
+				.exec();
+
+			if (!updatedDoc) {
+				return res.status(400).end();
+			}
+
+			res.status(200).json(updatedDoc);
+		} catch (e) {
+			console.error(e);
+			res.status(400).end();
 		}
+	};
 
-		res.status(200).json(updatedDoc);
-	} catch (e) {
-		console.error(e);
-		res.status(400).end();
-	}
-};
 const updateOnePrime = model => async (req, res) => {
 	try {
 		const id = req.user;
@@ -121,7 +134,6 @@ const updateOnePrime = model => async (req, res) => {
 				{ new: true }
 			)
 			.lean()
-			// .populate('classes')
 			.exec();
 
 		if (!updatedDoc) {
@@ -135,72 +147,40 @@ const updateOnePrime = model => async (req, res) => {
 	}
 };
 
-const updateOneByEmail = model => async (req, res) => {
-	try {
-		const email = req.body.email;
-		const updatedDoc = await model
-			.findOneAndUpdate(
-				{
-					email: email,
-				},
-				req.body,
-				{ new: true }
-			)
-			.lean()
-			// .populate('classes')
-			.exec();
+const createOne =
+	(model, validation = null) =>
+	async (req, res) => {
+		try {
+			const body = req.body;
 
-		if (!updatedDoc) {
-			return res.status(400).end();
+			// validate post
+			if (validation.createValidation) {
+				const { error } = validation.createValidation(body);
+				if (error) {
+					return res.status(400).end();
+				}
+			}
+
+			const doc = await model.create({ ...body });
+
+			if (!doc) {
+				return res.status(400).end();
+			}
+
+			res.status(201).json(doc);
+		} catch (e) {
+			console.error(e);
+			res.status(400).end();
 		}
+	};
 
-		res.status(200).json(updatedDoc);
-	} catch (e) {
-		console.error(e);
-		res.status(400).end();
-	}
-};
-// TODO: Pass in validation function (as optional)
-const createOne = model => async (req, res) => {
-	try {
-		const body = req.body;
-		const doc = await model.create({ ...body });
-
-		if (!doc) {
-			return res.status(400).end();
-		}
-
-		res.status(201).json(doc);
-	} catch (e) {
-		console.error(e);
-		res.status(400).end();
-	}
-};
-
-module.exports = model => ({
+module.exports = (model, validation = null) => ({
 	removeOne: removeOne(model),
-	updateOne: updateOne(model),
+	updateOne: updateOne(model, validation),
 	getMany: getMany(model),
 	getOne: getOne(model),
-	createOne: createOne(model),
-	updateOneByEmail: updateOneByEmail(model),
+	createOne: createOne(model, validation),
 	getOnePrime: getOnePrime(model),
 	updateOnePrime: updateOnePrime(model),
-	removeOnePrime: removeOnePrime(model),
-});
-
-module.exports.removeOne = model => ({ removeOne: removeOne(model) });
-module.exports.updateOne = model => ({ updateOne: updateOne(model) });
-module.exports.getMany = model => ({ getMany: getMany(model) });
-module.exports.getOne = model => ({ getOne: getOne(model) });
-module.exports.createOne = model => ({ createOne: createOne(model) });
-module.exports.updateOneByEmail = model => ({
-	updateOneByEmail: updateOneByEmail(model),
-});
-module.exports.getOnePrime = model => ({ getOnePrime: getOnePrime(model) });
-module.exports.updateOnePrime = model => ({
-	updateOnePrime: updateOnePrime(model),
-});
-module.exports.removeOnePrime = model => ({
 	removeOnePrime: removeOnePrime(model),
 });

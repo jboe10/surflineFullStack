@@ -1,5 +1,6 @@
 const crudControllers = require('../crud');
 const User = require('./user.model');
+const validation = require('./user.validation');
 
 const getOneAndPopulate = populate => async (req, res) => {
 	try {
@@ -23,5 +24,5 @@ const getOneAndPopulate = populate => async (req, res) => {
 	}
 };
 
-module.exports = crudControllers(User);
+module.exports = crudControllers(User, validation);
 module.exports.getOneAndPopulateSpot = getOneAndPopulate('favoriteSpots');

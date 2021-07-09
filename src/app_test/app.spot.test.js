@@ -2,8 +2,6 @@ const request = require('supertest');
 const app = require('../app');
 const mongoose = require('mongoose');
 const monogodb = 'mongodb://localhost:27017/JWT';
-const userAuthModel = require('../auth/userAuth.model');
-const userModel = require('../resources/users/user.model');
 const spotModel = require('../resources/spots/spot.model');
 const dotenv = require('dotenv');
 
@@ -101,34 +99,6 @@ describe('POST /api/spots', () => {
 	});
 });
 
-// describe();
-// describe('POST /api/spots', () => {
-// it('should respond with 200 and json header and previous obj with an ID', () => {
-// 	return request(app)
-// 		.post('/api/spots/')
-// 		.send({
-// 			name: 'Seal Beach South Sidesss',
-// 			quality: 'good',
-// 			size: '2-3',
-// 		})
-// 		.expect(200)
-// 		.expect('Content-Type', /json/)
-// 		.then(response => {
-// 			expect(response.body).toEqual(
-// 				expect.objectContaining({
-// 					_id: expect.any(String),
-// 					name: '45th street',
-// 					quality: 'good',
-// 					size: '3-4',
-// 				})
-// 			);
-// 		});
-// });
-// it('should respond with json header');
-// it('should respond with and object of input plus an id');
-// it('should respond with 200');
-// });
-
 describe('GET /api/spots/:id', () => {
 	// clean up data
 	beforeAll(() => {
@@ -142,12 +112,14 @@ describe('GET /api/spots/:id', () => {
 	};
 
 	it('should return with 200 and a message containing json OBJ with spot obj and correct obj id', async () => {
+		// create a spot
 		await request(app)
 			.post('/api/spots')
 			.send(spot)
 			.expect(201)
 			.expect('Content-Type', /json/)
 			.then(response1 => {
+				// take spot unique id use get to retrieve it
 				return request(app)
 					.get(`/api/spots/${response1.body._id}`)
 					.expect(200)
@@ -183,14 +155,17 @@ describe('PUT /api/spots/:id', () => {
 		quality: 'fair',
 		size: '3-4',
 	};
-
+	let newSpot_Id;
 	it('should return with 200/json message and updated obj and old _id', async () => {
+		// create a spot
 		await request(app)
 			.post('/api/spots')
 			.send(spot)
 			.expect(201)
 			.expect('Content-Type', /json/)
 			.then(response1 => {
+				// grab spots unique ID && attempt to modify it
+				newSpot_Id = response1.body._id;
 				return request(app)
 					.put(`/api/spots/${response1.body._id}`)
 					.send(newSpot)
@@ -207,6 +182,31 @@ describe('PUT /api/spots/:id', () => {
 						);
 					});
 			});
+	});
+
+	const badSpotUpdate = {
+		name: 'This is a test Spot',
+		quality: 'good',
+		size: '4-5',
+		extra: 'aaa',
+	};
+
+	const fieldMissingUpdate = {
+		name: 'This is a test Spot',
+		quality: 'good',
+	};
+	it('should return a 400 due to excess field on update', async () => {
+		await request(app)
+			.put(`/api/spots/${newSpot_Id}`)
+			.send(badSpotUpdate)
+			.expect(400);
+	});
+	it('should return 200 because fields arent required', async () => {
+		await request(app)
+			.put(`/api/spots/${newSpot_Id}`)
+			.send(fieldMissingUpdate)
+			.expect(200)
+			.expect('Content-type', /json/);
 	});
 });
 
