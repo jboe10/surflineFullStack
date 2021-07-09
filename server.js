@@ -5,9 +5,8 @@ const app = require('./src/app');
 dotenv.config();
 
 // connect to db
-// const uri =
-// 	'mongodb+srv://jboe:kino1212@cluster0.9hnwg.mongodb.net/srfline?retryWrites=true&w=majority';
-const uri = 'mongodb://localhost:27017/JWT';
+const uri =
+	'mongodb+srv://jboe:kino1212@cluster0.9hnwg.mongodb.net/srfline?retryWrites=true&w=majority';
 
 const connect = () => {
 	return mongoose.connect(uri, {
