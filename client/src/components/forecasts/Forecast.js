@@ -1,6 +1,8 @@
 import React from 'react';
 import SearchBar from '../SearchBar';
 import waves from '../../imgs/waves.jpg';
+import signUp from '../../imgs/signUp.jpg';
+
 import Footer from '../Footer';
 import {
 	importAllImgs,
@@ -37,22 +39,30 @@ export default function Forecast(props) {
 							<h3>Regional Forecast - North Orange County</h3>
 							<h5>AM Forecast</h5>
 							<p>
-								Clean Fun Surf on Tap, 1.5' low tide at bottoms out at 10am with
-								clean glassy conditions. Peaky A-Frames and plenty of rippable
-								shoulders.
+								Some bump out there but some fun corners to tag if you haven't
+								gotten wet yet. A blend of SSW and SW swells mixes with a bit of
+								NW energy for continued waist-chest high surf at better breaks
+								as standouts go head high on the larger ones. Light+ SW/SSW wind
+								is responsible for that surface texture as the tide slides down
+								to a modest 2:30pm low of 2.4'.
 							</p>
 							<h5>PM Forecast</h5>
 							<p>
-								Tide push maxes out a 3.5' at 3pm, predicting swamped out
-								conditions. However winds stay down and conditions improve with
-								the tidal draw. Best bet ~5pm.
+								Expecting a bit more bump to show through the middle of the
+								afternoon as onshore flow picks up to more moderate levels,
+								staying manageable through the middle of the afternoon before
+								likely easing some into the evening for slightly smoother
+								conditions. SW and SSW swells continue to keep the fun waves
+								rolling in while that touch of juice out of the NW helps the
+								beachbreaks provide the occasional preferred option for the
+								regular footers out there.
 							</p>
 						</div>
 						<a className="join-ad" href="/join">
 							<div
 								className="sign-up-ad"
 								style={{
-									backgroundImage: `url(${waves})`,
+									backgroundImage: `url(${signUp})`,
 								}}
 							>
 								<h2>Become a Premium Member Today!</h2>

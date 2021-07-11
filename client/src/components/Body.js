@@ -5,6 +5,7 @@ import small2 from '../imgs/small2.jpg';
 import small3 from '../imgs/small3.jpg';
 import hb from '../imgs/hb.jpg';
 import waves from '../imgs/waves.jpg';
+import signUp from '../imgs/signUp.jpg';
 import feature from '../imgs/feature-lg.jpg';
 
 export default function Body() {
@@ -58,15 +59,9 @@ export default function Body() {
 							HB Northside Pier
 						</div>
 						<div className="spot-conditions">
-							<div className="condition height">
-								4-6ft
-							</div>
-							<div className="condition tide">
-								0.7ft
-							</div>
-							<div className="condition wind">
-								6kts
-							</div>
+							<div className="condition height">4-6ft</div>
+							<div className="condition tide">0.7ft</div>
+							<div className="condition wind">6kts</div>
 						</div>
 					</div>
 				</a>
@@ -74,28 +69,24 @@ export default function Body() {
 					<h3>Regional Forecast - North Orange County</h3>
 					<h5>AM Forecast</h5>
 					<p>
-						Clean Fun Surf on Tap, 1.5' low tide at
-						bottoms out at 10am with clean glassy
-						conditions. Peaky A-Frames and plenty of
-						rippable shoulders.
+						Clean Fun Surf on Tap, 1.5' low tide at bottoms out at 10am with
+						clean glassy conditions. Peaky A-Frames and plenty of rippable
+						shoulders.
 					</p>
 					<h5>PM Forecast</h5>
 					<p>
-						Tide push maxes out a 3.5' at 3pm,
-						predicting swamped out conditions. However
-						winds stay down and conditions improve with
-						the tidal draw. Best bet ~5pm.
+						Tide push maxes out a 3.5' at 3pm, predicting swamped out
+						conditions. However winds stay down and conditions improve with the
+						tidal draw. Best bet ~5pm.
 					</p>
 				</div>
 				<a href="/join">
 					<div
 						className="sign-up-ad"
-						style={{ backgroundImage: `url(${waves})` }}
+						style={{ backgroundImage: `url(${signUp})` }}
 					>
 						<h2>Become a Premium Member Today!</h2>
-						<h5>
-							Gain Access to Premium Member Benefits
-						</h5>
+						<h5>Gain Access to Premium Member Benefits</h5>
 						<h3>Click Here To Sign Up!</h3>
 					</div>
 				</a>

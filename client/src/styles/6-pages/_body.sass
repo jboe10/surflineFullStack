@@ -12,6 +12,7 @@
     grid-template-rows: auto 1fr;
     grid-gap: 15px;
     .featured-article
+      +box-shadow
       cursor: pointer;
       background-position: center;
       background-repeat: no-repeat;
@@ -38,6 +39,7 @@
       grid-gap: 15px;
   .forecasts
     .surf-break-of-day
+      +box-shadow
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
@@ -84,24 +86,26 @@
         margin-top: 5px;
         font-size: 14px;
   .sign-up-ad
+    +box-shadow
     padding: 15px;
     background-color: white;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     height: 400px;
+    min-height: 400px;
     color: white
-    text-align: center;
+    // text-align: center;
     position: relative;
-    h2 
-      margin-bottom: 0;
-    h5 
-      margin-top: 10px;
-    h3 
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+    .sign-up-ad-info
+      display: flex;
+      flex-direction: column;
+      h2 
+        margin-bottom: 0;
+      h5 
+        margin-top: 10px;
+      h3 
+
 
 @media screen and ( max-width: $large)
   .body
