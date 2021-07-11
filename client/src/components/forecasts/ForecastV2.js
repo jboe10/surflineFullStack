@@ -1,19 +1,11 @@
 import React from 'react';
 import SearchBar from '../SearchBar';
-import waves from '../../imgs/waves.jpg';
-import signUp from '../imgs/signUp.jpg';
-
 import Footer from '../Footer';
-import {
-	importAllImgs,
-	getRndInteger,
-	surfColorClassNameGen,
-} from '../../utils/Helpers';
+import { importAllImgs, getRndInteger } from '../../utils/Helpers';
 import ForecastHeader from './ForecastHeader';
 import ForecastSpotInfo from './ForecastSpotInfo';
 import CamSelect from '../CamSelect';
 
-const spotBar = 'spot-bar';
 const tempRegion = {
 	country: 'United States',
 	state: 'California',
@@ -22,8 +14,6 @@ const tempRegion = {
 };
 
 export default function ForecastV2(props) {
-	const surfQualityColor = surfColorClassNameGen(spotBar, props.spot.quality);
-
 	const images = importAllImgs(
 		require.context('../../imgs/forecasts', false, /\.(png|jpe?g|svg)$/)
 	);

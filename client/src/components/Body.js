@@ -4,7 +4,6 @@ import small1 from '../imgs/small1.jpg';
 import small2 from '../imgs/small2.jpg';
 import small3 from '../imgs/small3.jpg';
 import hb from '../imgs/hb.jpg';
-import waves from '../imgs/waves.jpg';
 import signUp from '../imgs/signUp.jpg';
 import feature from '../imgs/feature-lg.jpg';
 
