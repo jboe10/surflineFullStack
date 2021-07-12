@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import surfline from '../imgs/fullLogo.png';
 import surflineSmall from '../imgs/surfline.png';
 import SearchModal from './SearchModal';
-import DropdownMenu from '../resources/DropdownMenu';
+import DropdownMenu2 from '../resources/DropdownMenu2';
 import { getSpotList } from '../api/UserApi';
 
 export default function SearchBar() {
@@ -64,7 +64,7 @@ export default function SearchBar() {
 					onMouseLeave={() => setForecastDrop(false)}
 				>
 					FORECASTS
-					{forecastDrop && <DropdownMenu link="/forecasts/" spots={spots} />}
+					{forecastDrop && <DropdownMenu2 link="/forecasts/" spots={spots} />}
 				</div>
 				<div className="news-link">
 					<a href="/news">NEWS</a>
