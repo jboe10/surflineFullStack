@@ -15,7 +15,7 @@ import large2 from './imgs/large2.jpg';
 import large3 from './imgs/large3.jpg';
 import feature from './imgs/feature-lg.jpg';
 import News from './components/news/News';
-import Forecast from './components/forecasts/Forecast';
+import ForecastV2 from './components/forecasts/ForecastV2';
 import { getSpotList } from './api/UserApi';
 import MobileForecastsNav from './components/forecasts/MobileForecastsNav';
 
@@ -48,12 +48,8 @@ function App() {
 					<MobileForecastsNav />
 				</Route>
 				{spots.map(spot => (
-					<Route
-						key={spot._id}
-						exact
-						path={`/forecasts/${spot._id}`}
-					>
-						<Forecast spot={spot} />
+					<Route key={spot._id} exact path={`/forecasts/${spot._id}`}>
+						<ForecastV2 spot={spot} />
 					</Route>
 				))}
 				<Route exact path="/article/feature">
