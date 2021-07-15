@@ -27,8 +27,8 @@ describe('GET /api/spots', () => {
 		});
 	});
 
-	it('should respond with 200 status code and json header and array of objects with spot model and an id', async () => {
-		await request(app)
+	it('should respond with 200 status code and json header and array of objects with spot model and an id', () => {
+		return request(app)
 			.get('/api/spots/')
 			.expect(200)
 			.expect('Content-Type', /json/)
@@ -111,9 +111,9 @@ describe('GET /api/spots/:id', () => {
 		size: '4-5',
 	};
 
-	it('should return with 200 and a message containing json OBJ with spot obj and correct obj id', async () => {
+	it('should return with 200 and a message containing json OBJ with spot obj and correct obj id', () => {
 		// create a spot
-		await request(app)
+		return request(app)
 			.post('/api/spots')
 			.send(spot)
 			.expect(201)
@@ -156,9 +156,9 @@ describe('PUT /api/spots/:id', () => {
 		size: '3-4',
 	};
 	let newSpot_Id;
-	it('should return with 200/json message and updated obj and old _id', async () => {
+	it('should return with 200/json message and updated obj and old _id', () => {
 		// create a spot
-		await request(app)
+		return request(app)
 			.post('/api/spots')
 			.send(spot)
 			.expect(201)
@@ -195,14 +195,14 @@ describe('PUT /api/spots/:id', () => {
 		name: 'This is a test Spot',
 		quality: 'good',
 	};
-	it('should return a 400 due to excess field on update', async () => {
-		await request(app)
+	it('should return a 400 due to excess field on update', () => {
+		return request(app)
 			.put(`/api/spots/${newSpot_Id}`)
 			.send(badSpotUpdate)
 			.expect(400);
 	});
-	it('should return 200 because fields arent required', async () => {
-		await request(app)
+	it('should return 200 because fields arent required', () => {
+		return request(app)
 			.put(`/api/spots/${newSpot_Id}`)
 			.send(fieldMissingUpdate)
 			.expect(200)

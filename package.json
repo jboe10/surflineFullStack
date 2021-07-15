@@ -7,7 +7,7 @@
 	"scripts": {
 		"start": "nodemon server.js",
 		"build": "cd client/ && npm install && npm run build",
-		"backTest": "jest src/app_test/ --watchAll --detectOpenHandles"
+		"backTest": "jest src/testing/app_test/ --watchAll --detectOpenHandles"
 	},
 	"author": "Jboe",
 	"license": "MIT",
@@ -25,7 +25,10 @@
 		"morgan": "^1.10.0",
 		"nodemon": "^2.0.6"
 	},
-	"devDependencies": {},
+	"devDependencies": {
+		"jest": "^27.0.6",
+		"supertest": "^6.1.3"
+	},
 	"jest": {
 		"testEnvironment": "node"
 	}

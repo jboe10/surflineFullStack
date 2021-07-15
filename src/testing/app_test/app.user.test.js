@@ -1,10 +1,10 @@
 const request = require('supertest');
-const app = require('../app');
+const app = require('../../app');
 const mongoose = require('mongoose');
 const monogodb = 'mongodb://localhost:27017/JWT';
-const userAuthModel = require('../auth/userAuth.model');
-const userModel = require('../resources/users/user.model');
-const spotModel = require('../resources/spots/spot.model');
+const userAuthModel = require('../../auth/userAuth.model');
+const userModel = require('../../resources/users/user.model');
+const spotModel = require('../../resources/spots/spot.model');
 const dotenv = require('dotenv');
 
 dotenv.config();
