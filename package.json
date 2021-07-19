@@ -6,8 +6,7 @@
 	"homepage": "https://surfline2.herokuapp.com/",
 	"scripts": {
 		"start": "nodemon server.js",
-		"build": "cd client/ && npm install && npm run build",
-		"backTest": "jest src/app_test/ --watchAll --detectOpenHandles"
+		"build": "cd client/ && npm install && npm run build"
 	},
 	"author": "Jboe",
 	"license": "MIT",
@@ -25,8 +24,5 @@
 		"morgan": "^1.10.0",
 		"nodemon": "^2.0.6"
 	},
-	"devDependencies": {},
-	"jest": {
-		"testEnvironment": "node"
-	}
+	"devDependencies": {}
 }
