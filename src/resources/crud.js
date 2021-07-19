@@ -95,7 +95,6 @@ const updateOne =
 			if (validation.updateValidation) {
 				const { error } = validation.updateValidation(body);
 				if (error) {
-					console.log('FF');
 					return res.status(400).end();
 				}
 			}

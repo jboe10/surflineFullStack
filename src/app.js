@@ -9,6 +9,7 @@ const controllers = require('./resources/spots/spot.controller');
 const authRoute = require('./auth/userAuth.route');
 const usersRoute = require('./resources/users/user.route');
 const spotsRoute = require('./resources/spots/spot.route');
+const statesRoute = require('./resources/regions/states/state.route');
 
 const app = express();
 app.use(express.static(path.join(__dirname, './client/build')));
@@ -23,6 +24,10 @@ app.use(urlencoded({ extended: true }));
 app.use('/api/user', authRoute);
 app.use('/api/user', usersRoute);
 app.use('/api/spots/', spotsRoute);
+
+// route region middleware
+app.use('/api/regions/states', statesRoute);
+
 app.get('/test', (req, res) => {
 	res.sendStatus(200);
 });
