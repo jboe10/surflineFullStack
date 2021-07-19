@@ -9,8 +9,7 @@ import CamSelect from '../CamSelect';
 const tempRegion = {
 	country: 'United States',
 	state: 'California',
-	county: 'Orange County',
-	city: 'Huntington Beach',
+	county: 'North Orange County',
 };
 
 export default function ForecastV2(props) {
@@ -22,7 +21,7 @@ export default function ForecastV2(props) {
 		<div className="forecast-v2">
 			<SearchBar />
 			<CamSelect />
-			<ForecastHeader region={tempRegion} />
+			<ForecastHeader region={tempRegion} spot={props.spot} />
 			<div className="forecast-wrap">
 				<div className="forecast">
 					<img

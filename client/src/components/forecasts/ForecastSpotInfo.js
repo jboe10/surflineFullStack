@@ -1,7 +1,7 @@
 import React from 'react';
 import { surfColorClassNameGen } from '../../utils/Helpers';
 import signUp from '../../imgs/signUp.jpg';
-import surfline from '../../imgs/srflinelogo.png';
+import guy from '../../imgs/guy.jpg';
 import ForecastSwellInfo from './ForecastSwellInfo';
 
 const spotBar = 'spot-bar';
@@ -20,7 +20,7 @@ export default function ForecastSpotInfo(props) {
 				<ForecastSwellInfo />
 				<div className="author">
 					<div className="author-info">
-						<img className="author-img" src={surfline} alt="author" />
+						<img className="author-img" src={guy} alt="author" />
 						<div className="name-title">
 							<div className="author-name">Mike Owhn</div>
 							<div className="author-title">Forecaster</div>

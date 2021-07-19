@@ -5,10 +5,9 @@ export default function ForecastHeader(props) {
 		<div className="forecast-header">
 			<div className="spot-info">
 				<div className="region">
-					{props.region.country}/{props.region.state}/{props.region.county}/
-					{props.region.city}
+					{props.region.country}/{props.region.state}/{props.region.county}
 				</div>
-				<h4>Spot Name Insert Here Please</h4>
+				<h4>{props.spot.name}</h4>
 			</div>
 			<div className="spot-extras">
 				<a href="/">Regional Forecast</a>
