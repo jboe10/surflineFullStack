@@ -3,7 +3,7 @@
 	"version": "1.0.0",
 	"description": "surfline full stack app",
 	"main": "server.js",
-	"homepage": "https://stormy-thicket-96949.herokuapp.com/",
+	"homepage": "https://surfline2.herokuapp.com/",
 	"scripts": {
 		"start": "nodemon server.js",
 		"build": "cd client/ && npm install && npm run build",
