@@ -26,7 +26,8 @@ app.get('/test', (req, res) => {
 	res.sendStatus(200);
 });
 
-app.use(express.static('build'));
+app.use('/static', express.static(path.join(__dirname, 'build')));
+// app.use(express.static('build'));
 //set static folder
 app.get('*', (req, res) => {
 	// res.sendFile(path.resolve(__dirname, './client/build', 'index.html'));
