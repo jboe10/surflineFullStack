@@ -29,7 +29,9 @@ app.get('/test', (req, res) => {
 
 //set static folder
 app.get('*', (req, res) => {
-	res.sendFile(path.resolve(__dirname, './client/build', 'index.html'));
+	// res.sendFile(path.resolve(__dirname, './client/build', 'index.html'));
+	const index = path.join(__dirname, 'build', 'index.html');
+	res.sendFile(index);
 });
 
 module.exports = app;
