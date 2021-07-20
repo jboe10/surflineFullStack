@@ -11,7 +11,6 @@ const usersRoute = require('./resources/users/user.route');
 const spotsRoute = require('./resources/spots/spot.route');
 
 const app = express();
-app.use(express.static(path.join(__dirname, './client/build')));
 
 // middleware
 app.use(express.json());
@@ -27,6 +26,7 @@ app.get('/test', (req, res) => {
 	res.sendStatus(200);
 });
 
+app.use(express.static('build'));
 //set static folder
 app.get('*', (req, res) => {
 	// res.sendFile(path.resolve(__dirname, './client/build', 'index.html'));
