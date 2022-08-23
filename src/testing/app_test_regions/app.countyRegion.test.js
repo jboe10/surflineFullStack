@@ -8,13 +8,15 @@ const countyRegionModel = require('../../resources/regions/countyRegions/countyR
 dotenv.config();
 mongoose.connect(monogodb, { useNewUrlParser: true, useUnifiedTopology: true });
 
+const route = '/api/regions/countyRegions';
+
 describe('POST /api/regions/countyRegion', () => {
 	beforeAll(() => {
 		countyRegionModel.collection.drop();
 	});
 
 	const countyRegion = {
-		county: 'Orange County',
+		countyRegion: 'Orange County',
 	};
 	const invalidCountyRegion = {
 		fasd: 'Orange county',
@@ -22,20 +24,20 @@ describe('POST /api/regions/countyRegion', () => {
 
 	it('should return 201 with countyRegion name in JSON', () => {
 		return request(app)
-			.post('/api/regions/countyRegion')
+			.post(route)
 			.send(countyRegion)
 			.expect(201)
 			.expect('Content-type', /json/)
 			.then(response => {
 				expect(response.body).toEqual(
 					expect.objectContaining({
-						county: countyRegion.county,
+						countyRegion: countyRegion.countyRegion,
 					})
 				);
 			});
 	});
 	it('should return 400 due to missing name', () => {
-		return request(app).send(invalidCountyRegion).expect(400);
+		return request(app).post(route).send(invalidCountyRegion).expect(400);
 	});
 });
 
@@ -45,25 +47,29 @@ describe('Get /api/regions/countyRegion/', () => {
 	});
 
 	const countyRegion = {
-		county: 'Orange County',
+		countyRegion: 'Orange County',
+	};
+
+	const countyRegion2 = {
+		countyRegion: 'Orange County2',
 	};
 
 	it('should return 200 with all countries in a [] of JSON', () => {
 		return request(app)
-			.post('/api/regions/countyRegion')
+			.post(route)
 			.send(countyRegion)
 			.expect(201)
 			.expect('Content-type', /json/)
 			.then(response => {
 				return request(app)
-					.get('/api/regions/countyRegion')
-					.expect(201)
+					.get(route)
+					.expect(200)
 					.expect('Content-type', /json/)
 					.then(response2 => {
-						expect(response.body).toEqual(
+						expect(response2.body).toEqual(
 							expect.arrayContaining([
 								expect.objectContaining({
-									county: expect.any(String),
+									countyRegion: expect.any(String),
 								}),
 							])
 						);
@@ -73,43 +79,51 @@ describe('Get /api/regions/countyRegion/', () => {
 });
 
 describe('GET /api/regions/countyRegion/:id', () => {
+	beforeAll(() => {
+		countyRegionModel.collection.drop();
+	});
+
+	const countyRegion = {
+		countyRegion: 'Orange County',
+	};
+
 	it('should return 200 with countyRegion and its contents in JSON', () => {
 		return request(app)
-			.post('/api/regions/countyRegion')
+			.post(route)
 			.send(countyRegion)
 			.expect(201)
 			.expect('Content-type', /json/)
 			.then(response => {
 				const ID = response.body._id;
 				return request(app)
-					.get(`/api/regions/countyRegion/${ID}`)
+					.get(`${route}/${ID}`)
 					.expect(200)
 					.expect('Content-type', /json/)
 					.then(response2 => {
-						expect(response.body).toEqual(
+						expect(response2.body).toEqual(
 							expect.objectContaining({
 								_id: ID,
-								county: countyRegion.county,
+								countyRegion: countyRegion.countyRegion,
 							})
 						);
 					});
 			});
 	});
 	it('should return 400 due to invalid id', () => {
-		return request(app).get(`/api/regions/countyRegion/1322123`).expect(400);
+		return request(app).get(`${route}/1322123`).expect(400);
 	});
 });
 
 describe('PUT /api/regions/countyRegion/:id', () => {
-	beforeEach(() => {
+	beforeAll(() => {
 		countyRegionModel.collection.drop();
 	});
 
 	const countyRegion = {
-		county: 'Orange County',
+		countyRegion: 'Orange County',
 	};
 	const countyRegionUpdate = {
-		county: 'Orange County222',
+		countyRegion: '2Orange County222',
 	};
 	const invalidUpdate = {
 		kounty: 'Orange County',
@@ -117,36 +131,38 @@ describe('PUT /api/regions/countyRegion/:id', () => {
 
 	it('should return 201 and return new countyRegion obj in JSON', () => {
 		return request(app)
-			.post('/api/regions/countyRegion')
+			.post(route)
 			.send(countyRegion)
 			.expect(201)
 			.expect('Content-type', /json/)
 			.then(response => {
 				const ID = response.body._id;
 				return request(app)
-					.put(`/api/regions/countyRegion/${ID}`)
+					.put(`${route}/${ID}`)
 					.send(countyRegionUpdate)
 					.expect(200)
 					.expect('Content-type', /json/)
 					.then(response2 => {
-						expect(response.body).toEqual(
+						expect(response2.body).toEqual(
 							expect.objectContaining({
-								county: countyRegionUpdate.county,
+								_id: ID,
+								countyRegion: countyRegionUpdate.countyRegion,
 							})
 						);
 					});
 			});
 	});
+
 	it('should return 400 due to invalid update', () => {
 		return request(app)
-			.post('/api/regions/countyRegion')
+			.post(route)
 			.send(countyRegion)
 			.expect(201)
 			.expect('Content-type', /json/)
 			.then(response => {
 				const ID = response.body._id;
 				return request(app)
-					.put(`/api/regions/countyRegion/${ID}`)
+					.put(`${route}/${ID}`)
 					.send(invalidUpdate)
 					.expect(400);
 			});

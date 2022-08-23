@@ -10,6 +10,8 @@ const authRoute = require('./auth/userAuth.route');
 const usersRoute = require('./resources/users/user.route');
 const spotsRoute = require('./resources/spots/spot.route');
 const statesRoute = require('./resources/regions/states/state.route');
+const countriesRoute = require('./resources/regions/countries/country.route');
+const countyRegionsRoute = require('./resources/regions/countyRegions/countyRegion.route');
 
 const app = express();
 app.use(express.static(path.join(__dirname, './client/build')));
@@ -27,6 +29,8 @@ app.use('/api/spots/', spotsRoute);
 
 // route region middleware
 app.use('/api/regions/states', statesRoute);
+app.use('/api/regions/countries', countriesRoute);
+app.use('/api/regions/countyRegions', countyRegionsRoute);
 
 app.get('/test', (req, res) => {
 	res.sendStatus(200);

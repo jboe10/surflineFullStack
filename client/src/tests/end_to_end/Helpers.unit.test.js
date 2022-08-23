@@ -3,8 +3,8 @@ import {
 	emailLoginValidation,
 	convertArrayToHashOfId,
 	surfColorClassNameGen,
-} from './Helpers';
-import { colorClassName } from './Constants';
+} from '../../utils/Helpers';
+import { colorClassName } from '../../utils/Constants';
 
 test('validate name is 6 or more characters', () => {
 	expect(nameLoginValidation('BobbyJoe')).toBe(true);
