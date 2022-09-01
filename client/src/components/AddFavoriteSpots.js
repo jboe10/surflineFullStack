@@ -80,6 +80,10 @@ export default function AddFavoriteSpots(props) {
 		props.setShow(false);
 	};
 
+	const checkboxChangeHandler = (event, check) => {
+		setCheckBoxSpots(handelCheckBoxChange(event, check.spot._id));
+	};
+
 	return (
 		<div
 			className="add-favorite-spots"
@@ -94,9 +98,7 @@ export default function AddFavoriteSpots(props) {
 								type="checkbox"
 								name={check.spot.name}
 								checked={check.checked}
-								onChange={event =>
-									setCheckBoxSpots(handelCheckBoxChange(event, check.spot._id))
-								}
+								onChange={event => checkboxChangeHandler(event, check.spot._id)}
 							/>
 							<label>{check.spot.name}</label>
 						</div>

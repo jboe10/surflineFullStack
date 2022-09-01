@@ -25,54 +25,45 @@ export default function SignIn() {
 		}
 	};
 
+	const loginInputChangeHandler = event => {
+		setLogin(event.target.value);
+	};
+
+	const passwordInputChangeHandler = event => {
+		setPassword(event.target.value);
+	};
+
 	return (
 		<div className="sign-in">
 			<div className="login">
 				<div className="header">
 					<a href="/">
-						<img
-							width="50px"
-							height="50px"
-							src={surfline}
-							alt="FF"
-						/>
+						<img width="50px" height="50px" src={surfline} alt="FF" />
 					</a>
 				</div>
 				<div className="body-wrap">
 					<div className="bodys">
 						<h3>Sign in</h3>
 						<div className="sign-up">
-							Dont have an account?{' '}
-							<a href="/join">Sign Up</a>
+							Dont have an account? <a href="/join">Sign Up</a>
 						</div>
 						<form onSubmit={formSubmit}>
 							<div className="login-input">
 								<input
 									type="text"
-									onChange={e =>
-										setLogin(
-											e.target.value
-										)
-									}
+									onChange={loginInputChangeHandler}
 									placeholder="EMAIL"
 								/>
 							</div>
 							<div className="login-input">
 								<input
 									type="text"
-									onChange={e =>
-										setPassword(
-											e.target.value
-										)
-									}
+									onChange={passwordInputChangeHandler}
 									placeholder="PASSWORD"
 								/>
 							</div>
 							{/* <a href="/">Forgot Password?</a> */}
-							<button
-								type="submit"
-								className="sign-in-btn"
-							>
+							<button type="submit" className="sign-in-btn">
 								SIGN IN
 							</button>
 						</form>
@@ -88,24 +79,16 @@ export default function SignIn() {
 						<FontAwesomeIcon icon={faCompass} />
 						<div className="blurb-text">
 							<h4>Favorite Your Spots</h4>
-							<p>
-								Quickly access cams and
-								forecasts for the{' '}
-							</p>
+							<p>Quickly access cams and forecasts for the </p>
 							<p>breaks your care bost about</p>
 						</div>
 					</div>
 
 					<div className="blurb">
-						<FontAwesomeIcon
-							icon={faEnvelopeOpenText}
-						/>
+						<FontAwesomeIcon icon={faEnvelopeOpenText} />
 						<div className="blurb-text">
 							<h4>Email Newsletter</h4>
-							<p>
-								The best of surfline delivered
-								straight to your
-							</p>
+							<p>The best of surfline delivered straight to your</p>
 							<p>inbox.</p>
 						</div>
 					</div>
@@ -114,10 +97,7 @@ export default function SignIn() {
 						<FontAwesomeIcon icon={faNewspaper} />
 						<div className="blurb-text">
 							<h4>Personalized Homepage</h4>
-							<p>
-								Recieve news and forecasts
-								tailored to your
-							</p>
+							<p>Recieve news and forecasts tailored to your</p>
 							<p>local area.</p>
 						</div>
 					</div>
