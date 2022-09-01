@@ -40,14 +40,23 @@ export default function CamSelect() {
 		getUserSpots();
 	}, [showAddSpots]);
 
+	const addClickHandler = () => {
+		setShowAddSpots(true);
+	};
+
+	const scrollLeftClickHandler = () => {
+		scrollLeftSmooth(favsEle.current, -500);
+	};
+
+	const scrollRightClickHandler = () => {
+		scrollLeftSmooth(favsEle.current, 500);
+	};
+
 	return (
 		<>
 			<div className="cam-select">
 				<div className="favorites-wrap" ref={favsEle}>
-					<div
-						className="add-favorite-wrap"
-						onClick={() => setShowAddSpots(true)}
-					>
+					<div className="add-favorite-wrap" onClick={addClickHandler}>
 						<div className="add-favorite">
 							<div className="add">
 								<FontAwesomeIcon icon={faPlusCircle} />
@@ -72,10 +81,10 @@ export default function CamSelect() {
 					</div>
 				</div>
 				<div className="arrows">
-					<button onClick={() => scrollLeftSmooth(favsEle.current, -500)}>
+					<button onClick={scrollLeftClickHandler}>
 						<FontAwesomeIcon icon={faArrowLeft} />
 					</button>
-					<button onClick={() => scrollLeftSmooth(favsEle.current, 500)}>
+					<button onClick={scrollRightClickHandler}>
 						<FontAwesomeIcon icon={faArrowRight} />
 					</button>
 				</div>

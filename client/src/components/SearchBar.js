@@ -37,6 +37,10 @@ export default function SearchBar() {
 		}
 	};
 
+	const searchClickHandler = () => {
+		setShowSearchModal(true);
+	};
+
 	return (
 		<>
 			<div className="search-bar">
@@ -69,18 +73,14 @@ export default function SearchBar() {
 				<div className="news-link">
 					<a href="/news">NEWS</a>
 				</div>
-				<input
-					type="text"
-					placeholder="Search"
-					onClick={() => setShowSearchModal(true)}
-				/>
+				<input type="text" placeholder="Search" onClick={searchClickHandler} />
 
 				<a className="free-trial-btn" href="/join">
 					START FREE TRIAL
 				</a>
 				{!showLogout && <a href="/login">SIGN IN</a>}
 				{showLogout && (
-					<div className="logout-btn" onClick={() => logoutClickHandler()}>
+					<div className="logout-btn" onClick={logoutClickHandler}>
 						LOGOUT
 					</div>
 				)}

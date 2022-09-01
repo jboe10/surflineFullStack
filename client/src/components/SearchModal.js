@@ -18,13 +18,13 @@ export default function SearchModal(props) {
 
 	const inputChangeHandler = event => {
 		setResults(
-			spots.filter(
-				spot =>
-					spot.name.search(new RegExp(searchInput, 'i')) >=
-					0
-			)
+			spots.filter(spot => spot.name.search(new RegExp(searchInput, 'i')) >= 0)
 		);
 		return event.target.value;
+	};
+
+	const closeClickHandler = () => {
+		props.setShowSearchModal(false);
 	};
 
 	return (
@@ -36,22 +36,11 @@ export default function SearchModal(props) {
 							<FontAwesomeIcon icon={faSearch} />
 							<input
 								placeholder="Search spots for Forecast"
-								onChange={event =>
-									setSearchInput(
-										inputChangeHandler(
-											event
-										)
-									)
-								}
+								onChange={event => setSearchInput(inputChangeHandler(event))}
 							/>
 						</div>
 					</div>
-					<div
-						className="search-exit"
-						onClick={() =>
-							props.setShowSearchModal(false)
-						}
-					>
+					<div className="search-exit" onClick={closeClickHandler}>
 						<FontAwesomeIcon icon={faTimes} />
 					</div>
 				</div>

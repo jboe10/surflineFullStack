@@ -76,6 +76,10 @@ export default function AddFavoriteSpots(props) {
 		}
 	};
 
+	const cancelClickHandler = () => {
+		props.setShow(false);
+	};
+
 	return (
 		<div
 			className="add-favorite-spots"
@@ -100,10 +104,10 @@ export default function AddFavoriteSpots(props) {
 				</div>
 				<div className="save-cancel">
 					<div className="save">
-						<button onClick={() => saveClickHandler()}>Save</button>
+						<button onClick={saveClickHandler}>Save</button>
 					</div>
 					<div className="cancel">
-						<button onClick={() => props.setShow(false)}>Cancel</button>
+						<button onClick={cancelClickHandler}>Cancel</button>
 					</div>
 				</div>
 			</div>
