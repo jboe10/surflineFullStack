@@ -1,114 +1,114 @@
 .search-bar
-  font-size: 12px;
-  font-weight: 700;
-  color: white;
-  background-color: rgb(0, 88, 176);
-  display: flex;
-  height: 56px;
-  position: relative;
+  font-size: 12px
+  font-weight: 700
+  color: white
+  background-color: rgb(0, 88, 176)
+  display: flex
+  height: 56px
+  position: relative
   .home-button
     a 
-      padding: 0;
+      padding: 0
       .small-logo
-        display: none;
+        display: none
   .news-link
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    padding: 0px 15px;
-    flex-shrink: 0;
+    cursor: pointer
+    display: flex
+    align-items: center
+    padding: 0px 15px
+    flex-shrink: 0
     a 
-      padding: 0;
+      padding: 0
   .news-link:hover
-    background-color: $dark-blue;
+    background-color: $dark-blue
   .dropdown-f
-    display: flex;
-    align-items: center;
-    padding: 0px 15px;
-    flex-shrink: 0;
+    display: flex
+    align-items: center
+    padding: 0px 15px
+    flex-shrink: 0
   .dropdown-f:hover
-    background-color: $dark-blue;
+    background-color: $dark-blue
   input
     position: relative
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-left: 10px;
-    flex-shrink: 3;
-    flex-grow: 2;
-    min-width: 0;
-    color: white;
-    transition: background-color 0.5s ease;
-    background-color: $dark-blue;
-    border-radius: 5px;
-    border: 1px solid $dark-blue;
-  input:hover
-    background-color: #00366c;
-  input:hover::after
-    position: absolute;
-    content: "";
-    background-color: rgba(0, 0, 0, 0.4)
-    width: 100%;
-    height: 100%;
-    left: 0;
-    top: 0;
-    z-index: 100;
-  input::placeholder
-    padding-left: 5px;
-    text-align: center;
-    color: white;
-    font-size: 12px;
-    font-weight: 700;
-  .free-trial-btn
-    flex-shrink: 0;
-    position: relative
-    text-align: center;
-    background-color: #23D737;
-    font-size: 12px;
-    font-weight: 700;
+    margin-top: 10px
+    margin-bottom: 10px
+    margin-left: 10px
+    flex-shrink: 3
+    flex-grow: 2
+    min-width: 0
     color: white
-    border: none;
-    margin: 5px 10px 5px 10px;
+    transition: background-color 0.5s ease
+    background-color: $dark-blue
+    border-radius: 5px
+    border: 1px solid $dark-blue
+  input:hover
+    background-color: #00366c
+  input:hover::after
+    position: absolute
+    content: ""
+    background-color: rgba(0, 0, 0, 0.4)
+    width: 100%
+    height: 100%
+    left: 0
+    top: 0
+    z-index: 100
+  input::placeholder
+    padding-left: 5px
+    text-align: center
+    color: white
+    font-size: 12px
+    font-weight: 700
+  .free-trial-btn
+    flex-shrink: 0
+    position: relative
+    text-align: center
+    background-color: #23D737
+    font-size: 12px
+    font-weight: 700
+    color: white
+    border: none
+    margin: 5px 10px 5px 10px
   .free-trial-btn:focus
-    outline: none;
-    border: none;
+    outline: none
+    border: none
   .free-trial-btn:hover::after
-    position: absolute;
-    content: "";
+    position: absolute
+    content: ""
     background-color: rgba(0, 0, 0, 0.2)
-    width: 100%;
-    height: 100%;
-    left: 0;
-    top: 0;
+    width: 100%
+    height: 100%
+    left: 0
+    top: 0
   a 
-    color: white;
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    padding: 0 20px;
+    color: white
+    flex-shrink: 0
+    display: flex
+    align-items: center
+    padding: 0 20px
   .logout-btn 
-    color: white;
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    padding: 0 20px;
-    background-color: $ocean-blue;
-    border: none;
-    font-size: 12px;
-    font-weight: 700;
-    cursor: pointer;
+    color: white
+    flex-shrink: 0
+    display: flex
+    align-items: center
+    padding: 0 20px
+    background-color: $ocean-blue
+    border: none
+    font-size: 12px
+    font-weight: 700
+    cursor: pointer
 @media screen and ( max-width: $small )
   .search-bar
     .home-button
       a 
         .large-logo
-          display: none;
+          display: none
         .small-logo
-          display: block;
+          display: block
     .dropdown-f
-      display: none;
+      display: none
     .news-link
-      display: none;
+      display: none
     .dropdown
-      display: none;
+      display: none
     .free-trial-btn
-      display: none;
+      display: none
