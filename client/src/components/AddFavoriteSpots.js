@@ -79,7 +79,7 @@ export default function AddFavoriteSpots(props) {
 	return (
 		<div
 			className="add-favorite-spots"
-			onClick={event => clickOutsideOfCheckboxHandler(event)}
+			onClick={clickOutsideOfCheckboxHandler}
 			ref={backgroundDiv}
 		>
 			<div className="spots-modal">

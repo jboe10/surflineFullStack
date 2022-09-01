@@ -1,144 +1,142 @@
 .body
-  padding-bottom: 30px;
-  padding-top: 30px;
-  margin-right: 5%;
-  margin-left: 5%;
-  display: grid;
-  grid-template-columns: 2.4fr 1fr;
-  grid-row-gap: 20px;
-  grid-column-gap: 20px;
+  padding-bottom: 30px
+  padding-top: 30px
+  margin-right: 5%
+  margin-left: 5%
+  display: grid
+  grid-template-columns: 2.4fr 1fr
+  grid-row-gap: 20px
+  grid-column-gap: 20px
   .articles
-    display: grid;
-    grid-template-rows: auto 1fr;
-    grid-gap: 15px;
+    display: grid
+    grid-template-rows: auto 1fr
+    grid-gap: 15px
     .featured-article
       +box-shadow
-      cursor: pointer;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
-      width: 100%;
-      height: 600px;
-      display: flex;
+      cursor: pointer
+      background-position: center
+      background-repeat: no-repeat
+      background-size: cover
+      width: 100%
+      height: 600px
+      display: flex
       .article-feature
-        width: 100%;
-        display: flex;
-        margin-top: auto;
+        width: 100%
+        display: flex
+        margin-top: auto
         h2 
-          margin-top: 0;
-          color: white;
-          font-weight: 600;
-          font-size: 40px;
-          background-color: rgba(0,0,0,0.6);
-          width: 100%;
-          margin-bottom: 0;
-          padding: 35px 0 35px 35px; 
+          margin-top: 0
+          color: white
+          font-weight: 600
+          font-size: 40px
+          background-color: rgba(0,0,0,0.6)
+          width: 100%
+          margin-bottom: 0
+          padding: 35px 0 35px 35px 
     .other-articles
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      grid-gap: 15px;
+      display: grid
+      grid-template-columns: 1fr 1fr 1fr
+      grid-gap: 15px
   .forecasts
     .surf-break-of-day
       +box-shadow
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
-      width: 100%;
-      height: 16vw;
-      position: relative;
-      text-align: center;
-      color: white;
+      background-position: center
+      background-repeat: no-repeat
+      background-size: cover
+      width: 100%
+      height: 16vw
+      position: relative
+      text-align: center
+      color: white
       .spot-name
-        font-size: 16px;
-        position: absolute;
-        bottom: 8px;
-        left: 16px;
+        font-size: 16px
+        position: absolute
+        bottom: 8px
+        left: 16px
         .dot
-          height: 7px;
-          width: 7px;
-          background-color: green;
-          border-radius: 50%;
-          display: inline-block;
-          margin-right: 5px;
-          margin-bottom: 2px;
+          height: 7px
+          width: 7px
+          background-color: green
+          border-radius: 50%
+          display: inline-block
+          margin-right: 5px
+          margin-bottom: 2px
       .spot-conditions
-        display: flex;
-        color: white;
-        font-weight: 600;
-        position: absolute;
-        bottom: 8px;
-        right: 16px;
+        display: flex
+        color: white
+        font-weight: 600
+        position: absolute
+        bottom: 8px
+        right: 16px
         .condition
-          margin-right: 10px;
+          margin-right: 10px
     .area-forecast
-      margin-bottom: 15px;
-      padding: 15px;
-      background-color: white;
+      margin-bottom: 15px
+      padding: 15px
+      background-color: white
 
       h3 
-        color: rgba(0,0,0,0.8);
-        font-size: 20px;
-        margin-top: 5px;
+        color: rgba(0,0,0,0.8)
+        font-size: 20px
+        margin-top: 5px
       h5 
-        color: rgba(0,0,0,0.8);
-        margin-bottom: 0;
+        color: rgba(0,0,0,0.8)
+        margin-bottom: 0
       p 
-        margin-top: 5px;
-        font-size: 14px;
+        margin-top: 5px
+        font-size: 14px
   .sign-up-ad
     +box-shadow
-    padding: 15px;
-    background-color: white;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 400px;
-    min-height: 400px;
+    padding: 15px
+    background-color: white
+    background-position: center
+    background-repeat: no-repeat
+    background-size: cover
+    height: 400px
+    min-height: 400px
     color: white
-    // text-align: center;
-    position: relative;
+    // text-align: center
+    position: relative
     .sign-up-ad-info
-      display: flex;
-      flex-direction: column;
+      display: flex
+      flex-direction: column
       h2 
-        margin-bottom: 0;
+        margin-bottom: 0
       h5 
-        margin-top: 10px;
+        margin-top: 10px
       h3 
-
-
 @media screen and ( max-width: $large)
   .body
     .articles
       .featured-article
       .other-articles
-        display: flex;
-        flex-direction: column;
+        display: flex
+        flex-direction: column
     .forecasts
       .surf-break-of-day
-        height: 30vw;
+        height: 30vw
         .spot-name
         .spot-conditions
           .tide
-            display: none;
+            display: none
           .wind
-            display: none;
+            display: none
 @media screen and ( max-width: $medium)
   .body
-    margin-right: 0;
-    margin-left: 0;
-    display: flex;
-    flex-direction: column;
+    margin-right: 0
+    margin-left: 0
+    display: flex
+    flex-direction: column
     .articles
       .featured-article
       .other-articles
-        display: flex;
-        flex-direction: column;
+        display: flex
+        flex-direction: column
     .forecasts
       .surf-break-of-day
         .spot-name
         .spot-conditions
           .tide
-            display: block;
+            display: block
           .wind
-            display: block;
+            display: block
