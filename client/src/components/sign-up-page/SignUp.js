@@ -52,6 +52,17 @@ export default function LogInPage() {
 		}
 	};
 
+	const nameInputChangeHandler = event => {
+		setName(event.target.value);
+	};
+
+	const emailInputChangeHandler = event => {
+		setEmail(event.target.value);
+	};
+
+	const passwordInputChangeHandler = event => {
+		setPassword(event.target.value);
+	};
 	return (
 		<div className="sign-up-page">
 			<div className="sign-up-form">
@@ -71,7 +82,7 @@ export default function LogInPage() {
 								<input
 									className="border-gray"
 									type="text"
-									onChange={e => setName(e.target.value)}
+									onChange={nameInputChangeHandler}
 									placeholder="FULL NAME"
 									ref={nameInput}
 								/>
@@ -81,7 +92,7 @@ export default function LogInPage() {
 								<input
 									className="border-gray"
 									type="text"
-									onChange={e => setEmail(e.target.value)}
+									onChange={emailInputChangeHandler}
 									placeholder="EMAIL"
 									ref={emailInput}
 								/>
@@ -91,7 +102,7 @@ export default function LogInPage() {
 								<input
 									className="border-gray"
 									type="text"
-									onChange={e => setPassword(e.target.value)}
+									onChange={passwordInputChangeHandler}
 									placeholder="PASSWORD"
 									ref={passwordInput}
 								/>

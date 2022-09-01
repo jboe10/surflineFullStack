@@ -27,6 +27,9 @@ export default function SearchModal(props) {
 		props.setShowSearchModal(false);
 	};
 
+	const searchInputChangeHandler = event => {
+		setSearchInput(inputChangeHandler(event));
+	};
 	return (
 		<div className="search-modal">
 			<div className="search">
@@ -36,7 +39,7 @@ export default function SearchModal(props) {
 							<FontAwesomeIcon icon={faSearch} />
 							<input
 								placeholder="Search spots for Forecast"
-								onChange={event => setSearchInput(inputChangeHandler(event))}
+								onChange={searchInputChangeHandler}
 							/>
 						</div>
 					</div>
